@@ -3,136 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nora Elegha — Social Media Growth Strategist</title>
+<title>Nora Elegha - Social Media Growth Strategist</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --bg:#0B1120;--surface:#131D2E;--card:#1A2640;
-  --accent:#E8541A;--accent-light:#FF7040;
-  --text:#F1EEE8;--text-muted:#7A8599;--text-dim:#4A5568;
-  --border:rgba(255,255,255,0.07);--border-hover:rgba(255,255,255,0.15);
+  --bg:#07060F;
+  --surface:#0E0C1A;
+  --card:#161326;
+  --accent:#8B5CF6;
+  --accent-light:#A78BFA;
+  --accent-dim:rgba(139,92,246,0.12);
+  --accent-border:rgba(139,92,246,0.3);
+  --text:#F3F0FF;
+  --text-muted:#847EA8;
+  --text-dim:#3D3860;
+  --border:rgba(255,255,255,0.07);
+  --border-hover:rgba(139,92,246,0.4);
 }
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(11,17,32,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(7,6,15,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
 .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-0.02em;color:var(--text);text-decoration:none;}
 .nav-logo span{color:var(--accent);}
 .nav-links{display:flex;gap:2rem;list-style:none;}
 .nav-links a{color:var(--text-muted);text-decoration:none;font-size:0.875rem;transition:color 0.2s;}
 .nav-links a:hover{color:var(--text);}
-.nav-cta{background:var(--accent) !important;color:white !important;padding:0.5rem 1.25rem;border-radius:6px;font-weight:600;}
+.nav-cta{background:var(--accent) !important;color:#fff !important;padding:0.5rem 1.25rem;border-radius:6px;font-weight:700 !important;transition:background 0.2s !important;}
 .nav-cta:hover{background:var(--accent-light) !important;}
 
-/* HERO */
+/* ── HAMBURGER ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.25s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:none;position:fixed;inset:0;z-index:99;background:rgba(7,6,15,0.98);flex-direction:column;align-items:center;justify-content:center;gap:2.25rem;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:700;color:var(--text);text-decoration:none;transition:color 0.2s;}
+.mobile-nav a:hover{color:var(--accent);}
+.mobile-cta{background:var(--accent);color:#fff !important;padding:0.75rem 2.5rem;border-radius:8px;font-size:1.1rem !important;}
+
+/* ── HERO ── */
 .hero{min-height:100vh;display:flex;align-items:center;padding:8rem 2rem 4rem;max-width:1100px;margin:0 auto;}
 .hero-inner{max-width:780px;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,84,26,0.1);border:1px solid rgba(232,84,26,0.25);color:var(--accent-light);font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px;margin-bottom:2rem;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent-light);font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px;margin-bottom:2rem;}
 .hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;}
 .hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,4.75rem);font-weight:800;line-height:1.08;letter-spacing:-0.03em;margin-bottom:1.5rem;}
 .hero h1 em{font-style:normal;color:var(--accent);}
 .hero-sub{font-size:1.1rem;color:var(--text-muted);max-width:560px;margin-bottom:2.5rem;line-height:1.85;}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn-primary{background:var(--accent);color:white;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.95rem;transition:background 0.2s,transform 0.15s;display:inline-block;}
+.btn-primary{background:var(--accent);color:#fff;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.95rem;transition:background 0.2s,transform 0.15s;display:inline-block;}
 .btn-primary:hover{background:var(--accent-light);transform:translateY(-1px);}
 .btn-ghost{color:var(--text-muted);padding:0.875rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;font-size:0.95rem;border:1px solid var(--border-hover);transition:all 0.2s;display:inline-block;}
-.btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,0.3);}
+.btn-ghost:hover{color:var(--text);border-color:var(--accent);}
 
-/* STATS BAR */
+/* ── GLOW ORBS ── */
+.hero-glow{position:absolute;pointer-events:none;z-index:0;}
+.glow-1{top:15%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(139,92,246,0.12) 0%,transparent 70%);border-radius:50%;}
+.glow-2{top:50%;right:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(167,139,250,0.08) 0%,transparent 70%);border-radius:50%;}
+
+/* ── STATS BAR ── */
 .stats-bar{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 2rem;}
-.stats-bar-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2rem;}
+.stats-bar-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;}
 .stat{text-align:center;}
-.stat-num{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--accent);letter-spacing:-0.04em;line-height:1;margin-bottom:0.5rem;}
-.stat-label{font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;line-height:1.4;}
+.stat-num{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--accent);letter-spacing:-0.04em;line-height:1;margin-bottom:0.5rem;}
+.stat-label{font-size:0.76rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;line-height:1.45;}
+.stat-divider{width:1px;background:var(--border);display:none;}
 
-/* SECTIONS */
+/* ── SECTION SHARED ── */
 section{padding:5rem 2rem;}
 .section-inner{max-width:1100px;margin:0 auto;}
-.section-eyebrow{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;}
+.section-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;}
 .section-title{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.025em;line-height:1.12;margin-bottom:0.85rem;}
 .section-desc{color:var(--text-muted);max-width:560px;font-size:1.05rem;margin-bottom:3.5rem;}
 
-/* ABOUT */
+/* ── ABOUT ── */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
 .about-text p{color:var(--text-muted);margin-bottom:1.25rem;line-height:1.85;}
 .about-text strong{color:var(--text);font-weight:500;}
-.about-credentials{display:flex;flex-direction:column;gap:1rem;margin-top:0.5rem;}
-.credential{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color 0.2s;}
-.credential:hover{border-color:var(--border-hover);}
-.credential-icon{width:40px;height:40px;background:rgba(232,84,26,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.1rem;flex-shrink:0;}
+.about-credentials{display:flex;flex-direction:column;gap:1rem;}
+.credential{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color 0.25s;}
+.credential:hover{border-color:var(--accent-border);}
+.credential-icon{width:40px;height:40px;background:var(--accent-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
 .credential h4{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;margin-bottom:0.3rem;color:var(--text);}
 .credential p{font-size:0.83rem;color:var(--text-muted);line-height:1.6;}
 .skills-row{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:2rem;}
-.skill-tag{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text-muted);font-size:0.78rem;padding:0.35rem 0.9rem;border-radius:100px;font-weight:500;}
+.skill-tag{background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent-light);font-size:0.78rem;padding:0.35rem 0.9rem;border-radius:100px;font-weight:500;}
 
-/* CASE STUDIES */
+/* ── CASE STUDIES ── */
 .case-studies{background:var(--surface);border-top:1px solid var(--border);}
 .case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;}
-.case-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden;}
-.case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.case-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:border-color 0.25s,transform 0.25s;position:relative;overflow:hidden;}
+.case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-light));transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
 .case-card:hover::before{transform:scaleX(1);}
-.case-card:hover{border-color:var(--border-hover);transform:translateY(-3px);}
-.case-tag{display:inline-block;background:rgba(232,84,26,0.1);color:var(--accent-light);font-size:0.7rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:100px;margin-bottom:1.25rem;}
+.case-card:hover{border-color:var(--accent-border);transform:translateY(-3px);}
+.case-tag{display:inline-block;background:var(--accent-dim);color:var(--accent-light);font-size:0.7rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:100px;margin-bottom:1.25rem;}
 .case-card h3{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:0.3rem;}
 .case-sector{font-size:0.78rem;color:var(--text-dim);margin-bottom:1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;}
 .case-desc{color:var(--text-muted);font-size:0.88rem;margin-bottom:1rem;line-height:1.72;}
-.case-challenge{font-size:0.82rem;border-left:2px solid rgba(232,84,26,0.5);padding-left:0.75rem;color:var(--text-muted);line-height:1.65;margin-bottom:0;}
+.case-challenge{font-size:0.82rem;border-left:2px solid var(--accent-border);padding-left:0.75rem;color:var(--text-muted);line-height:1.65;}
 .case-challenge strong{color:var(--text);font-weight:500;}
 .case-metrics{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);}
-.case-metric-item{background:rgba(255,255,255,0.03);border-radius:8px;padding:0.75rem;}
+.case-metric-item{background:rgba(139,92,246,0.06);border-radius:8px;padding:0.75rem;}
 .case-metric-num{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--accent);letter-spacing:-0.02em;}
 .case-metric-label{font-size:0.7rem;color:var(--text-muted);line-height:1.3;margin-top:3px;}
 
-/* PROCESS */
+/* ── TESTIMONIALS ── */
+.testimonials{border-top:1px solid var(--border);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
+.testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;transition:border-color 0.25s;}
+.testimonial-card:hover{border-color:var(--accent-border);}
+.testimonial-quote{font-size:2.5rem;line-height:1;color:var(--accent);font-family:'Syne',sans-serif;font-weight:800;margin-bottom:1rem;opacity:0.6;}
+.testimonial-text{font-size:0.95rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem;font-style:italic;}
+.testimonial-text strong{color:var(--text);font-style:normal;font-weight:500;}
+.testimonial-author{display:flex;align-items:center;gap:0.75rem;}
+.testimonial-avatar{width:38px;height:38px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:0.85rem;color:var(--accent);flex-shrink:0;}
+.testimonial-name{font-weight:600;font-size:0.9rem;color:var(--text);}
+.testimonial-role{font-size:0.78rem;color:var(--text-muted);}
+.testimonial-placeholder{border:1px dashed rgba(139,92,246,0.2);background:transparent;}
+.testimonial-placeholder .testimonial-text{opacity:0.4;}
+
+/* ── PROCESS ── */
 .process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;}
-.process-step{padding:1.75rem;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:border-color 0.2s;}
-.process-step:hover{border-color:var(--border-hover);}
+.process-step{padding:1.75rem;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:border-color 0.25s;}
+.process-step:hover{border-color:var(--accent-border);}
 .step-num{font-size:0.72rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
-.process-step h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.5rem;color:var(--text);}
+.process-step h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.5rem;}
 .process-step p{font-size:0.84rem;color:var(--text-muted);line-height:1.65;}
 
-/* WORK SAMPLES */
-.samples{background:var(--surface);border-top:1px solid var(--border);}
-.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;}
-.work-item{background:var(--card);border:1px solid var(--border);border-radius:12px;aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;text-align:center;padding:1.5rem;gap:0.4rem;transition:border-color 0.2s;}
-.work-item:hover{border-color:var(--border-hover);}
-.work-icon{font-size:1.5rem;margin-bottom:0.4rem;}
-.work-item-label{color:var(--text-muted);font-size:0.82rem;font-weight:500;}
-.work-item-sub{color:var(--text-dim);font-size:0.72rem;}
-.work-note{text-align:center;color:var(--text-dim);font-size:0.78rem;margin-top:1.75rem;border:1px dashed rgba(255,255,255,0.1);border-radius:8px;padding:0.75rem 1rem;}
+/* ── WORK SAMPLES ── */
+.samples-section{background:var(--bg);border-top:1px solid var(--border);}
+.samples-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-bottom:2.5rem;}
+.sample-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.25s,transform 0.25s;text-decoration:none;display:block;}
+.sample-card:hover{border-color:var(--accent-border);transform:translateY(-3px);}
+.sample-thumb{width:100%;aspect-ratio:16/10;overflow:hidden;position:relative;}
+.sample-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;}
+.sample-card:hover .sample-thumb img{transform:scale(1.04);}
+.sample-thumb-empty{width:100%;aspect-ratio:16/10;background:linear-gradient(135deg,var(--card) 0%,var(--surface) 100%);display:flex;align-items:center;justify-content:center;}
+.sample-type-pill{position:absolute;top:12px;left:12px;background:rgba(7,6,15,0.75);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:100px;padding:0.25rem 0.7rem;font-size:0.7rem;font-weight:600;color:var(--accent-light);letter-spacing:0.05em;text-transform:uppercase;}
+.sample-info{padding:1rem 1.25rem 1.25rem;}
+.sample-brand{font-size:0.72rem;color:var(--accent);font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:0.2rem;}
+.sample-title{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.2rem;}
+.sample-meta{font-size:0.77rem;color:var(--text-muted);}
+.samples-cta-strip{background:var(--card);border:1px solid var(--accent-border);border-radius:14px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.samples-cta-strip p{font-size:0.95rem;color:var(--text-muted);max-width:480px;line-height:1.65;}
+.samples-cta-strip strong{color:var(--text);}
 
-/* CONTACT */
-.contact{background:var(--bg);border-top:1px solid var(--border);}
-.contact-box{background:rgba(232,84,26,0.05);border:1px solid rgba(232,84,26,0.18);border-radius:20px;padding:4.5rem;text-align:center;max-width:700px;margin:0 auto;}
+/* ── CONTACT ── */
+.contact{background:var(--surface);border-top:1px solid var(--border);}
+.contact-box{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:20px;padding:4.5rem;text-align:center;max-width:700px;margin:0 auto;}
 .contact-box h2{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.025em;margin-bottom:1rem;}
 .contact-box h2 em{font-style:normal;color:var(--accent);}
-.contact-box p{color:var(--text-muted);margin-bottom:2.5rem;font-size:1.05rem;max-width:480px;margin-left:auto;margin-right:auto;}
+.contact-box>p{color:var(--text-muted);margin-bottom:2.5rem;font-size:1.05rem;max-width:460px;margin-left:auto;margin-right:auto;}
 .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
 
-/* FOOTER */
 footer{padding:2rem;text-align:center;font-size:0.8rem;color:var(--text-dim);border-top:1px solid var(--border);}
 footer a{color:var(--accent);text-decoration:none;}
 
-/* FADE ANIMATIONS */
+/* ── ANIMATIONS ── */
 .fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .fade-up.visible{opacity:1;transform:none;}
 
-/* MOBILE */
+/* ── MOBILE ── */
 @media(max-width:768px){
   nav{padding:1rem 1.25rem;}
   .nav-links{display:none;}
+  .hamburger{display:flex;}
   .hero{padding:7rem 1.25rem 3rem;}
   .about-grid{grid-template-columns:1fr;gap:2.5rem;}
   .contact-box{padding:2.5rem 1.5rem;}
   section{padding:3.5rem 1.25rem;}
   .stats-bar{padding:2rem 1.25rem;}
+  .samples-cta-strip{flex-direction:column;text-align:center;}
 }
 </style>
 </head>
 <body>
 
+<!-- GLOW ORBS -->
+<div class="hero-glow glow-1"></div>
+<div class="hero-glow glow-2"></div>
+
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Nora<span>.</span></a>
   <ul class="nav-links">
@@ -141,17 +196,26 @@ footer a{color:var(--accent);text-decoration:none;}
     <li><a href="#samples">Work Samples</a></li>
     <li><a href="#contact" class="nav-cta">Work with me</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<!-- MOBILE DRAWER -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#work" class="mobile-link">Case Studies</a>
+  <a href="#samples" class="mobile-link">Work Samples</a>
+  <a href="#contact" class="mobile-cta mobile-link">Work with me</a>
+</div>
+
 <!-- HERO -->
-<div style="max-width:1100px;margin:0 auto;">
+<div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
   <div class="hero">
     <div class="hero-inner">
       <div class="hero-eyebrow">Social Media Growth Strategist · 4+ Years</div>
       <h1>I turn social content<br>into <em>business outcomes.</em></h1>
-      <p class="hero-sub">
-        I'm Nora — I help founders and growth brands build social systems that generate real leads, bookings, and authority. Not just views. Not just followers. Results that show up in the business.
-      </p>
+      <p class="hero-sub">I'm Nora. I help founders and growth brands build social systems that generate real leads, bookings, and authority. Not just views. Not just followers. Results that show up in the business.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary">Work with me →</a>
         <a href="#work" class="btn-ghost">See case studies</a>
@@ -168,6 +232,10 @@ footer a{color:var(--accent);text-decoration:none;}
       <div class="stat-label">Views in 90 days<br>from zero</div>
     </div>
     <div class="stat">
+      <div class="stat-num">2,633%</div>
+      <div class="stat-label">Increase in<br>profile visits</div>
+    </div>
+    <div class="stat">
       <div class="stat-num">40%</div>
       <div class="stat-label">Increase in<br>consultation bookings</div>
     </div>
@@ -179,10 +247,6 @@ footer a{color:var(--accent);text-decoration:none;}
       <div class="stat-num">700+</div>
       <div class="stat-label">Followers gained<br>in under 5 days</div>
     </div>
-    <div class="stat">
-      <div class="stat-num">4.3K</div>
-      <div class="stat-label">My own LinkedIn<br>following</div>
-    </div>
   </div>
 </div>
 
@@ -192,10 +256,10 @@ footer a{color:var(--accent);text-decoration:none;}
     <div class="about-grid">
       <div class="about-text fade-up">
         <p class="section-eyebrow">About me</p>
-        <h2 class="section-title">Strategy first.<br>Always.</h2>
-        <p>I started in social media because I was obsessed with what makes people stop scrolling. Four years later, I'm obsessed with what makes them buy, book, and come back.</p>
-        <p>I've worked across B2B SaaS, real estate, healthcare, luxury services, and consulting — building content strategies from the ground up, managing multi-client portfolios, and leading cross-functional teams. My edge is connecting platform performance to <strong>actual business outcomes</strong>: leads, bookings, pipeline, and authority.</p>
-        <p>I practice what I preach. I've grown my own LinkedIn to <strong>4,300+ followers organically</strong> and consistently built audience in every environment I've been in — including constrained ones with minimal resources. I know how to build from scratch.</p>
+        <h2 class="section-title">Social media doesn't<br>fix brands. It <em style="font-style:normal;color:var(--accent);">amplifies</em> them.</h2>
+        <p>Give me a brand with real clarity - a founder who knows what they're building, who they're building it for, and why it matters - and I'll build a content system around that clarity that makes the right people impossible to ignore. What I won't do is use content to paper over positioning problems. That's not a content job. That's a business job.</p>
+        <p>I've spent 4+ years working with B2B SaaS, consulting, real estate, and growth-stage brands - building content strategies from the ground up, managing multi-client portfolios, and leading cross-functional teams. My edge is connecting platform performance to <strong>actual business outcomes</strong>: leads, bookings, pipeline, and authority.</p>
+        <p>I practice what I preach. I've grown my own LinkedIn to <strong>4,300+ followers organically</strong> - the same system I build for clients, running on my own brand.</p>
         <div class="skills-row">
           <span class="skill-tag">Multi-platform strategy</span>
           <span class="skill-tag">Short-form video</span>
@@ -209,34 +273,33 @@ footer a{color:var(--accent);text-decoration:none;}
           <span class="skill-tag">Campaign strategy</span>
         </div>
       </div>
-
       <div class="about-credentials">
         <div class="credential fade-up">
           <div class="credential-icon">📈</div>
           <div>
             <h4>Revenue-connected thinking</h4>
-            <p>I measure success by bookings, leads, and pipeline — not just reach and impressions. Every strategy ties back to a business number.</p>
+            <p>I measure success by bookings, leads, and pipeline - not just reach and impressions. Every strategy ties back to a business number.</p>
           </div>
         </div>
         <div class="credential fade-up">
           <div class="credential-icon">🎯</div>
           <div>
             <h4>Built for founders & growth brands</h4>
-            <p>I've taken accounts from zero and I've optimized ones that were already running. I know how to work with limited resources and still deliver.</p>
+            <p>I've taken accounts from zero and optimised ones already running. I know how to work with limited resources and still deliver.</p>
           </div>
         </div>
         <div class="credential fade-up">
           <div class="credential-icon">🔁</div>
           <div>
             <h4>Systems, not just posts</h4>
-            <p>I build content architectures that compound. The goal is always to reduce your dependency on constant creation while increasing output quality.</p>
+            <p>I build content architectures that compound. The goal is to reduce your dependency on constant creation while increasing output quality.</p>
           </div>
         </div>
         <div class="credential fade-up">
           <div class="credential-icon">🤝</div>
           <div>
             <h4>100% client retention track record</h4>
-            <p>Every engagement I've had ended on the client's terms — never because they were unhappy with my work. I keep clients because I deliver on what I promise.</p>
+            <p>Every engagement I've had ended on the client's terms - never because they were unhappy with my work.</p>
           </div>
         </div>
       </div>
@@ -249,16 +312,15 @@ footer a{color:var(--accent);text-decoration:none;}
   <div class="section-inner">
     <p class="section-eyebrow">Case Studies</p>
     <h2 class="section-title">Work that moved the needle</h2>
-    <p class="section-desc">Real brands. Real strategies. Business outcomes — not just platform metrics.</p>
-
+    <p class="section-desc">Real brands. Real strategies. Business outcomes - not just platform metrics.</p>
     <div class="case-grid">
 
       <div class="case-card fade-up">
         <span class="case-tag">B2B SaaS · Instagram</span>
         <h3>ProductFlow HQ</h3>
         <p class="case-sector">Product Management Resource Hub</p>
-        <p class="case-desc">Launched and scaled ProductFlow's Instagram from absolute zero. Built the brand as a recognisable PM content creator using a Reels-first strategy, educational carousels, and a clear brand voice tied to their newsletter growth.</p>
-        <p class="case-challenge"><strong>The challenge:</strong> No existing audience, no brand recognition. Needed to build credibility and reach from scratch in a content-saturated niche — without paid ads.</p>
+        <p class="case-desc">Launched and scaled ProductFlow's Instagram from absolute zero. Built the brand as a recognisable PM content creator using a Reels-first strategy, educational carousels, and a clear brand voice tied to their newsletter.</p>
+        <p class="case-challenge"><strong>The challenge:</strong> No existing audience, no brand recognition. Needed to build credibility and reach from scratch in a content-saturated niche - without paid ads.</p>
         <div class="case-metrics">
           <div class="case-metric-item">
             <div class="case-metric-num">89K+</div>
@@ -266,15 +328,15 @@ footer a{color:var(--accent);text-decoration:none;}
           </div>
           <div class="case-metric-item">
             <div class="case-metric-num">98.5%</div>
-            <div class="case-metric-label">Of views driven by Reels</div>
+            <div class="case-metric-label">Of all views driven by Reels</div>
           </div>
           <div class="case-metric-item">
             <div class="case-metric-num">2,633%</div>
             <div class="case-metric-label">Increase in profile visits</div>
           </div>
           <div class="case-metric-item">
-            <div class="case-metric-num">0 → ∞</div>
-            <div class="case-metric-label">Account built from ground up</div>
+            <div class="case-metric-num">Built</div>
+            <div class="case-metric-label">From absolute zero, no prior audience</div>
           </div>
         </div>
       </div>
@@ -284,7 +346,7 @@ footer a{color:var(--accent);text-decoration:none;}
         <h3>TheCuralate</h3>
         <p class="case-sector">Product Advisory Firm for Startups</p>
         <p class="case-desc">Repositioned TheCuralate from vendor to trusted strategic partner for African and European startups. Built authority through educational content designed to attract serious founders over price-shopping clients.</p>
-        <p class="case-challenge"><strong>The business goal:</strong> Increase qualified consultation bookings — not follower count. Social needed to become a direct pipeline channel.</p>
+        <p class="case-challenge"><strong>The business goal:</strong> Increase qualified consultation bookings - not follower count. Social needed to become a direct pipeline channel.</p>
         <div class="case-metrics">
           <div class="case-metric-item">
             <div class="case-metric-num">40%</div>
@@ -306,11 +368,11 @@ footer a{color:var(--accent);text-decoration:none;}
       </div>
 
       <div class="case-card fade-up">
-        <span class="case-tag">Luxury Service · Instagram</span>
+        <span class="case-tag">Service Brand · Full-Funnel Strategy</span>
         <h3>The Elites</h3>
-        <p class="case-sector">Premium Dating &amp; Matchmaking Brand</p>
-        <p class="case-desc">Built the full end-to-end social strategy for a luxury matchmaking service — from brand awareness through to paid bookings. Mapped content to the entire customer journey and created platform-specific content flows for maximum conversion.</p>
-        <p class="case-challenge"><strong>The outcome:</strong> Social became a direct revenue channel. The brand established itself as a premium authority in the matchmaking space.</p>
+        <p class="case-sector">Awareness → Lead Generation → Paid Booking</p>
+        <p class="case-desc">Built a full end-to-end content funnel for a high-ticket service brand - from first impression to paid booking. The strategy mapped every content format to a specific stage of the customer journey, with targeted campaigns to generate qualified leads and drive conversions.</p>
+        <p class="case-challenge"><strong>The strategic challenge:</strong> A brand with a premium price point needs content that builds trust before it asks for anything. I built that trust architecture first, then activated conversion-focused content on top of it.</p>
         <div class="case-metrics">
           <div class="case-metric-item">
             <div class="case-metric-num">35%</div>
@@ -334,17 +396,17 @@ footer a{color:var(--accent);text-decoration:none;}
       <div class="case-card fade-up">
         <span class="case-tag">Organic Growth · Campaign Strategy</span>
         <h3>Referral Growth Campaigns</h3>
-        <p class="case-sector">Community-Led Growth · Volunteer Work</p>
-        <p class="case-desc">Designed and executed two referral-based campaigns that produced some of the fastest organic follower growth I've ever seen — built on community mechanics, clear incentives, and precise timing. Zero ad spend.</p>
-        <p class="case-challenge"><strong>The lesson:</strong> Organic community-driven growth can outperform paid campaigns when the campaign mechanics are right. These results were faster than most paid campaigns I've tracked.</p>
+        <p class="case-sector">Independent Project · Community-Led Growth</p>
+        <p class="case-desc">Designed and executed two referral-based campaigns that produced some of the fastest organic follower growth I've generated - built on community mechanics, clear incentives, and precise timing. Zero ad spend.</p>
+        <p class="case-challenge"><strong>The proof:</strong> Organic community-driven growth can outperform paid when the campaign mechanics are right. Faster than most paid campaigns I've tracked.</p>
         <div class="case-metrics">
           <div class="case-metric-item">
             <div class="case-metric-num">74→400+</div>
-            <div class="case-metric-label">Followers gained in under 5 days (Campaign 1)</div>
+            <div class="case-metric-label">Followers in under 5 days - Campaign 1</div>
           </div>
           <div class="case-metric-item">
             <div class="case-metric-num">135→700+</div>
-            <div class="case-metric-label">Followers gained in under 5 days (Campaign 2)</div>
+            <div class="case-metric-label">Followers in under 5 days - Campaign 2</div>
           </div>
           <div class="case-metric-item">
             <div class="case-metric-num">$0</div>
@@ -361,7 +423,58 @@ footer a{color:var(--accent);text-decoration:none;}
   </div>
 </section>
 
-<!-- HOW I WORK -->
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-inner">
+    <p class="section-eyebrow">Client Testimonials</p>
+    <h2 class="section-title">What clients say</h2>
+    <p class="section-desc">100% client retention across every engagement. Here's why they stayed.</p>
+    <div class="testimonials-grid">
+
+      <!--
+      ══════════════════════════════════════════════════
+      HOW TO ADD A REAL TESTIMONIAL:
+      Ask a client for a short quote - even one or two
+      sentences about working with you. Replace the
+      placeholder text below with their words, update
+      the name/role, and remove the testimonial-placeholder
+      class from the card.
+      ══════════════════════════════════════════════════
+      -->
+
+      <div class="testimonial-card testimonial-placeholder fade-up">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">
+          [A client quote goes here - even 1–2 genuine sentences about working with you will do more than any metric. You have 100% retention across every engagement. Someone has said something real. Ask them.]
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">-</div>
+          <div>
+            <div class="testimonial-name">Client Name</div>
+            <div class="testimonial-role">Role · Company</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card testimonial-placeholder fade-up">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">
+          [Second testimonial here. Aim for one from a B2B/SaaS client and one from a service brand - showing range without losing focus on your core market.]
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">-</div>
+          <div>
+            <div class="testimonial-name">Client Name</div>
+            <div class="testimonial-role">Role · Company</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
 <section id="process">
   <div class="section-inner">
     <p class="section-eyebrow">My Process</p>
@@ -369,68 +482,146 @@ footer a{color:var(--accent);text-decoration:none;}
     <p class="section-desc">Strategy without execution is a slide deck. Execution without strategy is noise. I do both.</p>
     <div class="process-grid">
       <div class="process-step fade-up">
-        <div class="step-num">01 — Discovery</div>
+        <div class="step-num">01 - Discovery</div>
         <h4>Understand the business</h4>
-        <p>Before I touch a caption, I dig into your goals, audience, competitors, and what success actually means for your business — not your Instagram.</p>
+        <p>Before I touch a caption, I dig into your goals, audience, competitors, and what success means for your business - not just your Instagram.</p>
       </div>
       <div class="process-step fade-up">
-        <div class="step-num">02 — Strategy</div>
+        <div class="step-num">02 - Strategy</div>
         <h4>Build the system</h4>
-        <p>Platform-specific strategy with clear content pillars, format mix, cadence, and KPIs tied to revenue — not vanity metrics.</p>
+        <p>Platform-specific strategy with clear content pillars, format mix, cadence, and KPIs tied to revenue - not vanity metrics.</p>
       </div>
       <div class="process-step fade-up">
-        <div class="step-num">03 — Execution</div>
+        <div class="step-num">03 - Execution</div>
         <h4>Create and distribute</h4>
-        <p>I handle content creation, scheduling, community management, and creative direction — consistently, at quality, without dropping balls.</p>
+        <p>I handle content creation, scheduling, community management, and creative direction - consistently, at quality.</p>
       </div>
       <div class="process-step fade-up">
-        <div class="step-num">04 — Optimize</div>
+        <div class="step-num">04 - Optimize</div>
         <h4>Analyze and improve</h4>
-        <p>Regular performance reviews with data-backed decisions. What's working gets scaled. What isn't gets cut or rebuilt from a better angle.</p>
+        <p>Regular performance reviews with data-backed decisions. What's working gets scaled. What isn't gets rebuilt.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- WORK SAMPLES -->
-<section id="samples" class="samples">
+<section id="samples" class="samples-section">
   <div class="section-inner">
     <p class="section-eyebrow">Work Samples</p>
     <h2 class="section-title">Edits &amp; graphics</h2>
-    <p class="section-desc">A selection of video edits, graphics, and content produced for clients across industries.</p>
-    <div class="work-grid">
-      <div class="work-item">
-        <div class="work-icon">🎬</div>
-        <div class="work-item-label">ProductFlow — Reel Edit</div>
-        <div class="work-item-sub">Video · Instagram</div>
-      </div>
-      <div class="work-item">
-        <div class="work-icon">🎬</div>
-        <div class="work-item-label">The Elites — Brand Reel</div>
-        <div class="work-item-sub">Video · Instagram</div>
-      </div>
-      <div class="work-item">
-        <div class="work-icon">🎨</div>
-        <div class="work-item-label">TheCuralate — Carousel</div>
-        <div class="work-item-sub">Graphic · LinkedIn</div>
-      </div>
-      <div class="work-item">
-        <div class="work-icon">🎨</div>
-        <div class="work-item-label">CrownMedia — Real Estate Posts</div>
-        <div class="work-item-sub">Graphics · Instagram</div>
-      </div>
-      <div class="work-item">
-        <div class="work-icon">🎬</div>
-        <div class="work-item-label">Aptiw — TikTok Edit</div>
-        <div class="work-item-sub">Video · TikTok</div>
-      </div>
-      <div class="work-item">
-        <div class="work-icon">🎨</div>
-        <div class="work-item-label">Brand Storytelling Post</div>
-        <div class="work-item-sub">Graphic · Multi-platform</div>
-      </div>
+    <p class="section-desc">Content I've produced across video, design, and copy - spanning brands and platforms.</p>
+
+    <!--
+    ═══════════════════════════════════════════════════════
+    HOW TO ADD YOUR CONTENT (no code knowledge needed):
+
+    FOR EACH SAMPLE CARD:
+    1. Take a screenshot of your work (a Reel thumbnail, a Canva design, analytics screenshot, etc.)
+    2. Go to cloudinary.com → sign up free → upload your image → click "Copy URL"
+    3. Replace the placeholder background colour on .sample-thumb-empty with:
+         <img src="PASTE_YOUR_URL_HERE" alt="Description">
+       inside the .sample-thumb div
+
+    FOR VIDEO LINKS:
+    - Upload your video to YouTube or Vimeo as "Unlisted"
+    - Replace the href="#" on each .sample-card with your video URL
+
+    FOR CANVA DESIGNS:
+    - Open your design in Canva → Share → "Copy link" (view only)
+    - Use that as the href on the card
+
+    ADD AS MANY CARDS AS YOU WANT - just copy one .sample-card block and paste it.
+    ═══════════════════════════════════════════════════════
+    -->
+
+    <div class="samples-grid">
+
+      <!-- CARD 1: Replace href with your video/Canva link. Replace background colour with <img src="YOUR_URL"> -->
+      <a href="#" target="_blank" class="sample-card fade-up">
+        <div class="sample-thumb">
+          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#1a1232 0%,#2a1a4a 100%);"></div>
+          <span class="sample-type-pill">Video Edit</span>
+        </div>
+        <div class="sample-info">
+          <div class="sample-brand">ProductFlow HQ</div>
+          <div class="sample-title">PM Tips Reel</div>
+          <div class="sample-meta">Instagram · Hook-to-CTA format</div>
+        </div>
+      </a>
+
+      <!-- CARD 2 -->
+      <a href="#" target="_blank" class="sample-card fade-up">
+        <div class="sample-thumb">
+          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#1a1222 0%,#2a1535 100%);"></div>
+          <span class="sample-type-pill">Video Edit</span>
+        </div>
+        <div class="sample-info">
+          <div class="sample-brand">The Elites</div>
+          <div class="sample-title">Brand Story Reel</div>
+          <div class="sample-meta">Instagram · Luxury positioning</div>
+        </div>
+      </a>
+
+      <!-- CARD 3 -->
+      <a href="#" target="_blank" class="sample-card fade-up">
+        <div class="sample-thumb">
+          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#121a22 0%,#152232 100%);"></div>
+          <span class="sample-type-pill">Video Edit</span>
+        </div>
+        <div class="sample-info">
+          <div class="sample-brand">Aptiw Limited</div>
+          <div class="sample-title">TikTok Brand Edit</div>
+          <div class="sample-meta">TikTok · Trend-led format</div>
+        </div>
+      </a>
+
+      <!-- CARD 4 -->
+      <a href="#" target="_blank" class="sample-card fade-up">
+        <div class="sample-thumb">
+          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#121822 0%,#1a2535 100%);"></div>
+          <span class="sample-type-pill">Graphic Design</span>
+        </div>
+        <div class="sample-info">
+          <div class="sample-brand">TheCuralate</div>
+          <div class="sample-title">Authority Carousel</div>
+          <div class="sample-meta">LinkedIn · Educational series</div>
+        </div>
+      </a>
+
+      <!-- CARD 5 -->
+      <a href="#" target="_blank" class="sample-card fade-up">
+        <div class="sample-thumb">
+          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#121a18 0%,#152a22 100%);"></div>
+          <span class="sample-type-pill">Graphic Design</span>
+        </div>
+        <div class="sample-info">
+          <div class="sample-brand">CrownMedia</div>
+          <div class="sample-title">Real Estate Listing Posts</div>
+          <div class="sample-meta">Instagram · Property series</div>
+        </div>
+      </a>
+
+      <!-- CARD 6 -->
+      <a href="#" target="_blank" class="sample-card fade-up">
+        <div class="sample-thumb">
+          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#1a1a12 0%,#2a2515 100%);"></div>
+          <span class="sample-type-pill">Graphic Design</span>
+        </div>
+        <div class="sample-info">
+          <div class="sample-brand">The Elites</div>
+          <div class="sample-title">Brand Storytelling Post</div>
+          <div class="sample-meta">Instagram · Luxury aesthetic</div>
+        </div>
+      </a>
+
     </div>
-    <p class="work-note">↑ Replace these placeholder cards with your actual video embeds and image previews — link to your Google Drive, Notion, or embed directly.</p>
+
+    <div class="samples-cta-strip">
+      <p><strong>Want to see more?</strong> I have additional work samples including analytics screenshots, content calendars, and strategy decks available on request.</p>
+      <a href="mailto:contactnoraelegha@gmail.com" class="btn-primary" style="white-space:nowrap;">Request samples →</a>
+    </div>
+
   </div>
 </section>
 
@@ -439,7 +630,7 @@ footer a{color:var(--accent);text-decoration:none;}
   <div class="section-inner">
     <div class="contact-box">
       <h2>Let's build something<br>that <em>actually works.</em></h2>
-      <p>If you're a founder or growth brand ready to stop guessing at social and start seeing real business results — I'd love to talk about what that looks like for you.</p>
+      <p>If you're a founder or growth brand ready to stop guessing at social and start seeing real business results - I'd love to talk.</p>
       <div class="contact-links">
         <a href="mailto:contactnoraelegha@gmail.com" class="btn-primary">Email me →</a>
         <a href="https://linkedin.com/in/noraelegha" target="_blank" class="btn-ghost">LinkedIn (4.3K+ followers)</a>
@@ -453,13 +644,23 @@ footer a{color:var(--accent);text-decoration:none;}
 </footer>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-    }
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
   });
-}, { threshold: 0.1 });
+});
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.1});
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 
