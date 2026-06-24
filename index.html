@@ -3,666 +3,465 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stride: Stop Guessing. Start Stepping.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<title>Nora Elegha — Social Media Growth Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0B1120;--surface:#131D2E;--card:#1A2640;
+  --accent:#E8541A;--accent-light:#FF7040;
+  --text:#F1EEE8;--text-muted:#7A8599;--text-dim:#4A5568;
+  --border:rgba(255,255,255,0.07);--border-hover:rgba(255,255,255,0.15);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
 
-  :root {
-    --navy: #0f1623;
-    --navy-mid: #1a2535;
-    --navy-light: #243044;
-    --gold: #f0a500;
-    --gold-light: #f5c842;
-    --gold-dim: rgba(240,165,0,0.12);
-    --white: #ffffff;
-    --text-muted: rgba(255,255,255,0.5);
-    --text-secondary: rgba(255,255,255,0.72);
-    --border: rgba(255,255,255,0.08);
-    --border-gold: rgba(240,165,0,0.3);
-  }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(11,17,32,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-0.02em;color:var(--text);text-decoration:none;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:0.875rem;transition:color 0.2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{background:var(--accent) !important;color:white !important;padding:0.5rem 1.25rem;border-radius:6px;font-weight:600;}
+.nav-cta:hover{background:var(--accent-light) !important;}
 
-  html { scroll-behavior: smooth; }
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 2rem 4rem;max-width:1100px;margin:0 auto;}
+.hero-inner{max-width:780px;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,84,26,0.1);border:1px solid rgba(232,84,26,0.25);color:var(--accent-light);font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px;margin-bottom:2rem;}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,4.75rem);font-weight:800;line-height:1.08;letter-spacing:-0.03em;margin-bottom:1.5rem;}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-sub{font-size:1.1rem;color:var(--text-muted);max-width:560px;margin-bottom:2.5rem;line-height:1.85;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{background:var(--accent);color:white;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.95rem;transition:background 0.2s,transform 0.15s;display:inline-block;}
+.btn-primary:hover{background:var(--accent-light);transform:translateY(-1px);}
+.btn-ghost{color:var(--text-muted);padding:0.875rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;font-size:0.95rem;border:1px solid var(--border-hover);transition:all 0.2s;display:inline-block;}
+.btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,0.3);}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--navy);
-    color: var(--white);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+/* STATS BAR */
+.stats-bar{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 2rem;}
+.stats-bar-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2rem;}
+.stat{text-align:center;}
+.stat-num{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--accent);letter-spacing:-0.04em;line-height:1;margin-bottom:0.5rem;}
+.stat-label{font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;line-height:1.4;}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 20px 40px;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(15,22,35,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 22px; letter-spacing: -0.5px;
-    display: flex; align-items: center; gap: 10px;
-    text-decoration: none; color: var(--white);
-  }
-  .logo-icon {
-    width: 32px; height: 32px; background: var(--gold);
-    border-radius: 8px; display: flex; align-items: center;
-    justify-content: center; font-size: 16px;
-  }
-  .nav-cta {
-    background: var(--gold); color: var(--navy);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500; font-size: 14px;
-    padding: 10px 22px; border-radius: 100px;
-    border: none; cursor: pointer;
-    text-decoration: none; transition: opacity 0.2s;
-  }
-  .nav-cta:hover { opacity: 0.88; }
+/* SECTIONS */
+section{padding:5rem 2rem;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.025em;line-height:1.12;margin-bottom:0.85rem;}
+.section-desc{color:var(--text-muted);max-width:560px;font-size:1.05rem;margin-bottom:3.5rem;}
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center;
-    padding: 120px 24px 80px;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(240,165,0,0.07) 0%, transparent 70%);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-  }
-  .badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--gold-dim);
-    border: 1px solid var(--border-gold);
-    color: var(--gold); font-size: 13px; font-weight: 500;
-    padding: 7px 16px; border-radius: 100px;
-    margin-bottom: 36px; letter-spacing: 0.02em;
-  }
-  .badge-dot {
-    width: 6px; height: 6px;
-    background: var(--gold); border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.about-text p{color:var(--text-muted);margin-bottom:1.25rem;line-height:1.85;}
+.about-text strong{color:var(--text);font-weight:500;}
+.about-credentials{display:flex;flex-direction:column;gap:1rem;margin-top:0.5rem;}
+.credential{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color 0.2s;}
+.credential:hover{border-color:var(--border-hover);}
+.credential-icon{width:40px;height:40px;background:rgba(232,84,26,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.1rem;flex-shrink:0;}
+.credential h4{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;margin-bottom:0.3rem;color:var(--text);}
+.credential p{font-size:0.83rem;color:var(--text-muted);line-height:1.6;}
+.skills-row{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:2rem;}
+.skill-tag{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text-muted);font-size:0.78rem;padding:0.35rem 0.9rem;border-radius:100px;font-weight:500;}
 
-  h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(44px, 7vw, 84px);
-    font-weight: 800; line-height: 1.05;
-    letter-spacing: -2px; max-width: 900px;
-    margin-bottom: 28px;
-  }
-  h1 em { font-style: normal; color: var(--gold); }
+/* CASE STUDIES */
+.case-studies{background:var(--surface);border-top:1px solid var(--border);}
+.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;}
+.case-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden;}
+.case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.case-card:hover::before{transform:scaleX(1);}
+.case-card:hover{border-color:var(--border-hover);transform:translateY(-3px);}
+.case-tag{display:inline-block;background:rgba(232,84,26,0.1);color:var(--accent-light);font-size:0.7rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:100px;margin-bottom:1.25rem;}
+.case-card h3{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:0.3rem;}
+.case-sector{font-size:0.78rem;color:var(--text-dim);margin-bottom:1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;}
+.case-desc{color:var(--text-muted);font-size:0.88rem;margin-bottom:1rem;line-height:1.72;}
+.case-challenge{font-size:0.82rem;border-left:2px solid rgba(232,84,26,0.5);padding-left:0.75rem;color:var(--text-muted);line-height:1.65;margin-bottom:0;}
+.case-challenge strong{color:var(--text);font-weight:500;}
+.case-metrics{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+.case-metric-item{background:rgba(255,255,255,0.03);border-radius:8px;padding:0.75rem;}
+.case-metric-num{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--accent);letter-spacing:-0.02em;}
+.case-metric-label{font-size:0.7rem;color:var(--text-muted);line-height:1.3;margin-top:3px;}
 
-  .hero-sub {
-    font-size: clamp(17px, 2vw, 20px);
-    color: var(--text-secondary);
-    max-width: 540px; margin-bottom: 52px;
-    font-weight: 300; line-height: 1.65;
-  }
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;}
+.process-step{padding:1.75rem;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:border-color 0.2s;}
+.process-step:hover{border-color:var(--border-hover);}
+.step-num{font-size:0.72rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
+.process-step h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.5rem;color:var(--text);}
+.process-step p{font-size:0.84rem;color:var(--text-muted);line-height:1.65;}
 
-  /* FORMS */
-  .hero-form {
-    display: flex; flex-direction: column; gap: 10px;
-    max-width: 420px; width: 100%; margin: 0 auto 20px;
-  }
-  .final-form {
-    display: flex; flex-direction: column; gap: 10px;
-    max-width: 420px; width: 100%; margin: 0 auto 20px;
-  }
-  .form-row { display: flex; gap: 10px; }
+/* WORK SAMPLES */
+.samples{background:var(--surface);border-top:1px solid var(--border);}
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;}
+.work-item{background:var(--card);border:1px solid var(--border);border-radius:12px;aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;text-align:center;padding:1.5rem;gap:0.4rem;transition:border-color 0.2s;}
+.work-item:hover{border-color:var(--border-hover);}
+.work-icon{font-size:1.5rem;margin-bottom:0.4rem;}
+.work-item-label{color:var(--text-muted);font-size:0.82rem;font-weight:500;}
+.work-item-sub{color:var(--text-dim);font-size:0.72rem;}
+.work-note{text-align:center;color:var(--text-dim);font-size:0.78rem;margin-top:1.75rem;border:1px dashed rgba(255,255,255,0.1);border-radius:8px;padding:0.75rem 1rem;}
 
-  .hero-input {
-    flex: 1; min-width: 0;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px; padding: 14px 20px;
-    border-radius: 100px; outline: none;
-    transition: border-color 0.2s; width: 100%;
-  }
-  .hero-input::placeholder { color: var(--text-muted); }
-  .hero-input:focus { border-color: var(--gold); }
+/* CONTACT */
+.contact{background:var(--bg);border-top:1px solid var(--border);}
+.contact-box{background:rgba(232,84,26,0.05);border:1px solid rgba(232,84,26,0.18);border-radius:20px;padding:4.5rem;text-align:center;max-width:700px;margin:0 auto;}
+.contact-box h2{font-family:'Syne',sans-serif;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.025em;margin-bottom:1rem;}
+.contact-box h2 em{font-style:normal;color:var(--accent);}
+.contact-box p{color:var(--text-muted);margin-bottom:2.5rem;font-size:1.05rem;max-width:480px;margin-left:auto;margin-right:auto;}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
 
-  .hero-btn {
-    background: var(--gold); color: var(--navy);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600; font-size: 15px;
-    padding: 14px 28px; border-radius: 100px;
-    border: none; cursor: pointer; width: 100%;
-    transition: opacity 0.2s, transform 0.15s;
-  }
-  .hero-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-  .hero-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+/* FOOTER */
+footer{padding:2rem;text-align:center;font-size:0.8rem;color:var(--text-dim);border-top:1px solid var(--border);}
+footer a{color:var(--accent);text-decoration:none;}
 
-  .hero-note { font-size: 13px; color: var(--text-muted); }
+/* FADE ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-up.visible{opacity:1;transform:none;}
 
-  /* COMMUNITY BUTTON */
-  .community-btn {
-    display: inline-flex; align-items: center; gap: 9px;
-    background: rgba(37,211,102,0.1);
-    border: 1px solid rgba(37,211,102,0.3);
-    color: #25D366; font-size: 14px; font-weight: 500;
-    padding: 11px 22px; border-radius: 100px;
-    text-decoration: none; transition: background 0.2s; margin-top: 12px;
-  }
-  .community-btn:hover { background: rgba(37,211,102,0.2); }
-
-  /* SUCCESS STATE */
-  .success-state {
-    display: none; flex-direction: column;
-    align-items: center; gap: 14px;
-    text-align: center; max-width: 420px; margin: 0 auto;
-  }
-  .success-icon {
-    width: 64px; height: 64px; background: var(--gold);
-    border-radius: 50%; display: flex;
-    align-items: center; justify-content: center; font-size: 28px;
-  }
-  .success-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 22px; font-weight: 800; color: var(--white);
-  }
-  .success-sub {
-    font-size: 14px; color: var(--text-secondary); line-height: 1.6;
-  }
-
-  /* LOADING */
-  .btn-loading { position: relative; color: transparent !important; }
-  .btn-loading::after {
-    content: ''; position: absolute;
-    width: 18px; height: 18px;
-    border: 2px solid rgba(15,22,35,0.3);
-    border-top-color: var(--navy); border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
-  }
-  @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-
-  /* PROOF STRIP */
-  .proof-strip {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 32px 40px;
-    display: flex; align-items: center;
-    justify-content: center; gap: 60px; flex-wrap: wrap;
-  }
-  .proof-stat { text-align: center; }
-  .proof-number {
-    font-family: 'Syne', sans-serif;
-    font-size: 36px; font-weight: 700;
-    color: var(--gold); line-height: 1; margin-bottom: 6px;
-  }
-  .proof-label {
-    font-size: 13px; color: var(--text-muted);
-    text-transform: uppercase; letter-spacing: 0.08em;
-  }
-  .proof-divider { width: 1px; height: 40px; background: var(--border); }
-
-  /* SECTIONS */
-  .section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 12px; font-weight: 500;
-    text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--gold); margin-bottom: 20px;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 700; line-height: 1.1;
-    letter-spacing: -1.5px; margin-bottom: 24px; max-width: 700px;
-  }
-  .section-body {
-    font-size: 18px; color: var(--text-secondary);
-    max-width: 580px; line-height: 1.75; font-weight: 300;
-  }
-
-  /* PROBLEM */
-  .problem-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 2px; margin-top: 60px;
-    border-radius: 20px; overflow: hidden;
-    border: 1px solid var(--border);
-  }
-  .problem-card { background: var(--navy-mid); padding: 36px; }
-  .problem-card:nth-child(1) { border-radius: 18px 0 0 0; }
-  .problem-card:nth-child(2) { border-radius: 0 18px 0 0; }
-  .problem-card:nth-child(3) { border-radius: 0 0 0 18px; }
-  .problem-card:nth-child(4) { border-radius: 0 0 18px 0; }
-  .problem-quote {
-    font-family: 'Syne', sans-serif;
-    font-size: 17px; font-weight: 600;
-    line-height: 1.4; margin-bottom: 12px;
-    color: rgba(255,255,255,0.9);
-  }
-  .problem-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
-
-  /* HOW IT WORKS */
-  .how-wrapper {
-    background: var(--navy-mid);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .how-inner { max-width: 1100px; margin: 0 auto; padding: 100px 24px; }
-  .steps {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 2px; margin-top: 64px;
-  }
-  .step { padding: 40px 36px; background: var(--navy); }
-  .step:first-child { border-radius: 16px 0 0 16px; }
-  .step:last-child { border-radius: 0 16px 16px 0; }
-  .step-number {
-    font-family: 'Syne', sans-serif;
-    font-size: 48px; font-weight: 800;
-    color: rgba(240,165,0,0.15);
-    line-height: 1; margin-bottom: 28px;
-  }
-  .step-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 20px; font-weight: 700;
-    margin-bottom: 14px; letter-spacing: -0.3px;
-  }
-  .step-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.7; font-weight: 300; }
-
-  /* DASH INTRO */
-  .dash-section {
-    max-width: 1100px; margin: 0 auto;
-    padding: 100px 24px;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
-  }
-  .dash-visual {
-    background: var(--navy-mid); border: 1px solid var(--border);
-    border-radius: 24px; padding: 32px;
-    display: flex; flex-direction: column; gap: 16px;
-  }
-  .dash-msg { display: flex; gap: 12px; align-items: flex-start; }
-  .dash-avatar {
-    width: 36px; height: 36px; background: var(--gold);
-    border-radius: 10px; display: flex;
-    align-items: center; justify-content: center;
-    font-size: 18px; flex-shrink: 0;
-  }
-  .dash-bubble {
-    background: var(--navy-light);
-    border-radius: 4px 16px 16px 16px;
-    padding: 14px 18px; font-size: 14px;
-    color: var(--text-secondary); line-height: 1.6; max-width: 280px;
-  }
-  .dash-bubble strong { color: var(--white); font-weight: 500; }
-  .user-msg { display: flex; justify-content: flex-end; }
-  .user-bubble {
-    background: var(--gold-dim); border: 1px solid var(--border-gold);
-    border-radius: 16px 4px 16px 16px;
-    padding: 12px 18px; font-size: 14px;
-    color: var(--gold-light); max-width: 220px; line-height: 1.5;
-  }
-  .action-card { background: var(--white); border-radius: 16px; padding: 20px 22px; }
-  .ac-label {
-    font-size: 10px; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: #999; margin-bottom: 8px;
-  }
-  .ac-task { font-size: 14px; color: #111; font-weight: 500; line-height: 1.5; margin-bottom: 16px; }
-  .ac-btns { display: flex; gap: 8px; }
-  .ac-btn-done {
-    flex: 1; background: var(--navy); color: var(--white);
-    border: none; border-radius: 10px; padding: 10px;
-    font-size: 13px; font-weight: 500; cursor: pointer;
-  }
-  .ac-btn-help {
-    flex: 1; background: transparent; color: #666;
-    border: 1px solid #e5e5e5; border-radius: 10px;
-    padding: 10px; font-size: 13px; cursor: pointer;
-  }
-  .streak-row {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-    margin-top: 20px; padding-top: 16px;
-    border-top: 1px solid var(--border);
-    font-size: 13px; color: var(--text-muted);
-  }
-
-  /* PERSONAS */
-  .personas { max-width: 1100px; margin: 0 auto; padding: 0 24px 100px; }
-  .persona-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 16px; margin-top: 56px;
-  }
-  .persona-card {
-    background: var(--navy-mid); border: 1px solid var(--border);
-    border-radius: 20px; padding: 36px 32px; transition: border-color 0.2s;
-  }
-  .persona-card:hover { border-color: var(--border-gold); }
-  .persona-icon { font-size: 28px; margin-bottom: 20px; display: block; }
-  .persona-name {
-    font-family: 'Syne', sans-serif; font-size: 18px;
-    font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px;
-  }
-  .persona-pain { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
-  .persona-fix { font-size: 13px; color: var(--gold); font-weight: 500; }
-
-  /* FINAL CTA */
-  .final-cta { background: var(--navy-mid); border-top: 1px solid var(--border); }
-  .final-inner { max-width: 700px; margin: 0 auto; padding: 120px 24px; text-align: center; }
-  .final-inner h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(36px, 5vw, 60px);
-    font-weight: 800; line-height: 1.08;
-    letter-spacing: -2px; margin-bottom: 24px;
-  }
-  .final-inner > p {
-    font-size: 18px; color: var(--text-secondary);
-    margin-bottom: 48px; font-weight: 300;
-  }
-
-  footer {
-    padding: 32px 40px; border-top: 1px solid var(--border);
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 13px; color: var(--text-muted);
-  }
-  footer a { color: var(--text-muted); text-decoration: none; }
-  footer a:hover { color: var(--white); }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
-    .proof-strip { gap: 32px; padding: 32px 20px; }
-    .proof-divider { display: none; }
-    .problem-grid { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr; }
-    .step:first-child { border-radius: 16px 16px 0 0; }
-    .step:last-child { border-radius: 0 0 16px 16px; }
-    .dash-section { grid-template-columns: 1fr; gap: 48px; }
-    .persona-grid { grid-template-columns: 1fr; }
-    .form-row { flex-direction: column; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
-  }
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:1rem 1.25rem;}
+  .nav-links{display:none;}
+  .hero{padding:7rem 1.25rem 3rem;}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .contact-box{padding:2.5rem 1.5rem;}
+  section{padding:3.5rem 1.25rem;}
+  .stats-bar{padding:2rem 1.25rem;}
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="logo">
-    <div class="logo-icon">&#x26A1;</div>
-    Stride
-  </a>
-  <a href="#join" class="nav-cta">Get early access</a>
+  <a href="#" class="nav-logo">Nora<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Case Studies</a></li>
+    <li><a href="#samples">Work Samples</a></li>
+    <li><a href="#contact" class="nav-cta">Work with me</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="badge">
-    <span class="badge-dot"></span>
-    Now in private beta &middot; 15+ active users
+<div style="max-width:1100px;margin:0 auto;">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Social Media Growth Strategist · 4+ Years</div>
+      <h1>I turn social content<br>into <em>business outcomes.</em></h1>
+      <p class="hero-sub">
+        I'm Nora — I help founders and growth brands build social systems that generate real leads, bookings, and authority. Not just views. Not just followers. Results that show up in the business.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Work with me →</a>
+        <a href="#work" class="btn-ghost">See case studies</a>
+      </div>
+    </div>
   </div>
-  <h1>Stop guessing.<br><em>Start stepping.</em></h1>
-  <p class="hero-sub">Stride turns your biggest goal into one small daily task and checks on you until you actually do it. Think Duolingo, but for your real life.</p>
+</div>
 
-  <div id="heroFormWrap">
-    <form class="hero-form" id="heroForm" onsubmit="handleSubmit(event,'heroSuccess','heroFormWrap')">
-      <input class="hero-input" type="text" placeholder="Your name" required>
-      <input class="hero-input" type="email" placeholder="Your email address" required>
-      <input class="hero-input" type="text" placeholder="What goal are you working toward?" required>
-      <button class="hero-btn" type="submit">Join the waitlist</button>
-    </form>
-    <p class="hero-note" style="margin-top:10px">Free to join. No spam. Ever.</p>
-    <a href="https://chat.whatsapp.com/DDE9BOhMmauCnTkkpFxY5A" target="_blank" class="community-btn">
-      &#x1F4AC; Join the Stride community on WhatsApp
-    </a>
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat">
+      <div class="stat-num">89K+</div>
+      <div class="stat-label">Views in 90 days<br>from zero</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">40%</div>
+      <div class="stat-label">Increase in<br>consultation bookings</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">167%</div>
+      <div class="stat-label">Reach growth<br>in 90 days</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">700+</div>
+      <div class="stat-label">Followers gained<br>in under 5 days</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4.3K</div>
+      <div class="stat-label">My own LinkedIn<br>following</div>
+    </div>
   </div>
+</div>
 
-  <div class="success-state" id="heroSuccess">
-    <div class="success-icon">&#x26A1;</div>
-    <div class="success-title">You are locked in.</div>
-    <div class="success-sub">Dash has your briefing. You will hear from us before anyone else when Stride opens early access.</div>
-    <a href="https://chat.whatsapp.com/DDE9BOhMmauCnTkkpFxY5A" target="_blank" class="community-btn">
-      &#x1F4AC; Join the Stride community while you wait
-    </a>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p class="section-eyebrow">About me</p>
+        <h2 class="section-title">Strategy first.<br>Always.</h2>
+        <p>I started in social media because I was obsessed with what makes people stop scrolling. Four years later, I'm obsessed with what makes them buy, book, and come back.</p>
+        <p>I've worked across B2B SaaS, real estate, healthcare, luxury services, and consulting — building content strategies from the ground up, managing multi-client portfolios, and leading cross-functional teams. My edge is connecting platform performance to <strong>actual business outcomes</strong>: leads, bookings, pipeline, and authority.</p>
+        <p>I practice what I preach. I've grown my own LinkedIn to <strong>4,300+ followers organically</strong> and consistently built audience in every environment I've been in — including constrained ones with minimal resources. I know how to build from scratch.</p>
+        <div class="skills-row">
+          <span class="skill-tag">Multi-platform strategy</span>
+          <span class="skill-tag">Short-form video</span>
+          <span class="skill-tag">Lead generation</span>
+          <span class="skill-tag">Content systems</span>
+          <span class="skill-tag">Data analytics</span>
+          <span class="skill-tag">Brand positioning</span>
+          <span class="skill-tag">Video editing</span>
+          <span class="skill-tag">Client management</span>
+          <span class="skill-tag">Team leadership</span>
+          <span class="skill-tag">Campaign strategy</span>
+        </div>
+      </div>
+
+      <div class="about-credentials">
+        <div class="credential fade-up">
+          <div class="credential-icon">📈</div>
+          <div>
+            <h4>Revenue-connected thinking</h4>
+            <p>I measure success by bookings, leads, and pipeline — not just reach and impressions. Every strategy ties back to a business number.</p>
+          </div>
+        </div>
+        <div class="credential fade-up">
+          <div class="credential-icon">🎯</div>
+          <div>
+            <h4>Built for founders & growth brands</h4>
+            <p>I've taken accounts from zero and I've optimized ones that were already running. I know how to work with limited resources and still deliver.</p>
+          </div>
+        </div>
+        <div class="credential fade-up">
+          <div class="credential-icon">🔁</div>
+          <div>
+            <h4>Systems, not just posts</h4>
+            <p>I build content architectures that compound. The goal is always to reduce your dependency on constant creation while increasing output quality.</p>
+          </div>
+        </div>
+        <div class="credential fade-up">
+          <div class="credential-icon">🤝</div>
+          <div>
+            <h4>100% client retention track record</h4>
+            <p>Every engagement I've had ended on the client's terms — never because they were unhappy with my work. I keep clients because I deliver on what I promise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- PROOF STRIP -->
-<div class="proof-strip">
-  <div class="proof-stat">
-    <div class="proof-number">15+</div>
-    <div class="proof-label">Beta users</div>
-  </div>
-  <div class="proof-divider"></div>
-  <div class="proof-stat">
-    <div class="proof-number">82%</div>
-    <div class="proof-label">Task completion rate</div>
-  </div>
-  <div class="proof-divider"></div>
-  <div class="proof-stat">
-    <div class="proof-number">100+</div>
-    <div class="proof-label">Daily tasks delivered</div>
-  </div>
-  <div class="proof-divider"></div>
-  <div class="proof-stat">
-    <div class="proof-number">Built</div>
-    <div class="proof-label">From real user feedback</div>
-  </div>
-</div>
+<!-- CASE STUDIES -->
+<section id="work" class="case-studies">
+  <div class="section-inner">
+    <p class="section-eyebrow">Case Studies</p>
+    <h2 class="section-title">Work that moved the needle</h2>
+    <p class="section-desc">Real brands. Real strategies. Business outcomes — not just platform metrics.</p>
 
-<!-- PROBLEM -->
-<section class="section">
-  <p class="section-label">The problem</p>
-  <h2 class="section-title">You don't have a motivation problem. You have a direction problem.</h2>
-  <p class="section-body">Everyone says "put yourself out there." But nobody tells you what that actually means. What to do today. What to do first. So you try everything, get overwhelmed, and stop.</p>
+    <div class="case-grid">
 
-  <div class="problem-grid">
-    <div class="problem-card">
-      <p class="problem-quote">"I'll start on Monday."</p>
-      <p class="problem-desc">The goal is still there. Monday just keeps moving further away.</p>
-    </div>
-    <div class="problem-card">
-      <p class="problem-quote">"I just need to get organised first."</p>
-      <p class="problem-desc">Organisation is the comfortable feeling of not actually starting.</p>
-    </div>
-    <div class="problem-card">
-      <p class="problem-quote">"I know what to do. I just don't do it."</p>
-      <p class="problem-desc">You don't need more information. You need someone to make the first step impossible to avoid.</p>
-    </div>
-    <div class="problem-card">
-      <p class="problem-quote">"I've tried apps. They don't stick."</p>
-      <p class="problem-desc">Most apps give you a better list. Stride gives you a push every single day.</p>
+      <div class="case-card fade-up">
+        <span class="case-tag">B2B SaaS · Instagram</span>
+        <h3>ProductFlow HQ</h3>
+        <p class="case-sector">Product Management Resource Hub</p>
+        <p class="case-desc">Launched and scaled ProductFlow's Instagram from absolute zero. Built the brand as a recognisable PM content creator using a Reels-first strategy, educational carousels, and a clear brand voice tied to their newsletter growth.</p>
+        <p class="case-challenge"><strong>The challenge:</strong> No existing audience, no brand recognition. Needed to build credibility and reach from scratch in a content-saturated niche — without paid ads.</p>
+        <div class="case-metrics">
+          <div class="case-metric-item">
+            <div class="case-metric-num">89K+</div>
+            <div class="case-metric-label">Total views in first 90 days</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">98.5%</div>
+            <div class="case-metric-label">Of views driven by Reels</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">2,633%</div>
+            <div class="case-metric-label">Increase in profile visits</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">0 → ∞</div>
+            <div class="case-metric-label">Account built from ground up</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-up">
+        <span class="case-tag">B2B Consulting · LinkedIn + Instagram</span>
+        <h3>TheCuralate</h3>
+        <p class="case-sector">Product Advisory Firm for Startups</p>
+        <p class="case-desc">Repositioned TheCuralate from vendor to trusted strategic partner for African and European startups. Built authority through educational content designed to attract serious founders over price-shopping clients.</p>
+        <p class="case-challenge"><strong>The business goal:</strong> Increase qualified consultation bookings — not follower count. Social needed to become a direct pipeline channel.</p>
+        <div class="case-metrics">
+          <div class="case-metric-item">
+            <div class="case-metric-num">40%</div>
+            <div class="case-metric-label">Increase in consultation bookings</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">200%</div>
+            <div class="case-metric-label">Follower growth on LinkedIn</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">160%</div>
+            <div class="case-metric-label">Overall follower increase</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">+15%</div>
+            <div class="case-metric-label">Average post reach expansion</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-up">
+        <span class="case-tag">Luxury Service · Instagram</span>
+        <h3>The Elites</h3>
+        <p class="case-sector">Premium Dating &amp; Matchmaking Brand</p>
+        <p class="case-desc">Built the full end-to-end social strategy for a luxury matchmaking service — from brand awareness through to paid bookings. Mapped content to the entire customer journey and created platform-specific content flows for maximum conversion.</p>
+        <p class="case-challenge"><strong>The outcome:</strong> Social became a direct revenue channel. The brand established itself as a premium authority in the matchmaking space.</p>
+        <div class="case-metrics">
+          <div class="case-metric-item">
+            <div class="case-metric-num">35%</div>
+            <div class="case-metric-label">Increase in qualified leads</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">40%</div>
+            <div class="case-metric-label">Rise in consultation bookings</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">390%</div>
+            <div class="case-metric-label">Surge in Instagram profile visits</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">257K+</div>
+            <div class="case-metric-label">Accounts reached on Instagram</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card fade-up">
+        <span class="case-tag">Organic Growth · Campaign Strategy</span>
+        <h3>Referral Growth Campaigns</h3>
+        <p class="case-sector">Community-Led Growth · Volunteer Work</p>
+        <p class="case-desc">Designed and executed two referral-based campaigns that produced some of the fastest organic follower growth I've ever seen — built on community mechanics, clear incentives, and precise timing. Zero ad spend.</p>
+        <p class="case-challenge"><strong>The lesson:</strong> Organic community-driven growth can outperform paid campaigns when the campaign mechanics are right. These results were faster than most paid campaigns I've tracked.</p>
+        <div class="case-metrics">
+          <div class="case-metric-item">
+            <div class="case-metric-num">74→400+</div>
+            <div class="case-metric-label">Followers gained in under 5 days (Campaign 1)</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">135→700+</div>
+            <div class="case-metric-label">Followers gained in under 5 days (Campaign 2)</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">$0</div>
+            <div class="case-metric-label">Total ad spend used</div>
+          </div>
+          <div class="case-metric-item">
+            <div class="case-metric-num">440%</div>
+            <div class="case-metric-label">Average growth rate across both campaigns</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<div class="how-wrapper">
-  <div class="how-inner">
-    <p class="section-label">How it works</p>
-    <h2 class="section-title">One goal. One task. Every day.</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-number">01</div>
-        <h3 class="step-title">Tell Dash your goal</h3>
-        <p class="step-desc">Not a vague intention. A real goal. "Land 3 consulting clients." "Finish my book." "Relocate to London." Dash maps the route so you don't have to.</p>
+<!-- HOW I WORK -->
+<section id="process">
+  <div class="section-inner">
+    <p class="section-eyebrow">My Process</p>
+    <h2 class="section-title">How I work</h2>
+    <p class="section-desc">Strategy without execution is a slide deck. Execution without strategy is noise. I do both.</p>
+    <div class="process-grid">
+      <div class="process-step fade-up">
+        <div class="step-num">01 — Discovery</div>
+        <h4>Understand the business</h4>
+        <p>Before I touch a caption, I dig into your goals, audience, competitors, and what success actually means for your business — not your Instagram.</p>
       </div>
-      <div class="step">
-        <div class="step-number">02</div>
-        <h3 class="step-title">Get one micro-task daily</h3>
-        <p class="step-desc">Every day, one task. Under 5 minutes. No research required. Small enough that you can't say no to it and big enough that it actually moves the needle.</p>
+      <div class="process-step fade-up">
+        <div class="step-num">02 — Strategy</div>
+        <h4>Build the system</h4>
+        <p>Platform-specific strategy with clear content pillars, format mix, cadence, and KPIs tied to revenue — not vanity metrics.</p>
       </div>
-      <div class="step">
-        <div class="step-number">03</div>
-        <h3 class="step-title">Dash keeps you honest</h3>
-        <p class="step-desc">Miss a task and Dash notices. Go quiet and Dash shows up. Your streak is on the line and Dash takes that personally. The goal doesn't build itself, but it does build one task at a time.</p>
+      <div class="process-step fade-up">
+        <div class="step-num">03 — Execution</div>
+        <h4>Create and distribute</h4>
+        <p>I handle content creation, scheduling, community management, and creative direction — consistently, at quality, without dropping balls.</p>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- DASH INTRO -->
-<div class="dash-section">
-  <div>
-    <p class="section-label">Meet Dash</p>
-    <h2 class="section-title">Not a chatbot. Your accountability engine.</h2>
-    <p class="section-body" style="margin-bottom:28px">Dash learns how you work. It knows when you're avoiding the task. It knows when you need a push versus when you need a smaller door. It remembers what you said your Big Prize was and it holds you to it.</p>
-    <p class="section-body">Level 1 Dash is your cheerleader. Level 3 Dash is knocking on the glass of your phone screen. You choose which one shows up based entirely on whether you showed up first.</p>
-  </div>
-  <div class="dash-visual">
-    <div class="dash-msg">
-      <div class="dash-avatar">&#x26A1;</div>
-      <div class="dash-bubble"><strong>Day 7.</strong> You're about 40% through Phase 1. The foundation is laid. Let's build on it. &#x1F512;</div>
-    </div>
-    <div class="action-card">
-      <div class="ac-label">Today's task</div>
-      <div class="ac-task">Open LinkedIn and update your headline to include your specific niche. Takes 3 minutes.</div>
-      <div class="ac-btns">
-        <button class="ac-btn-done">&#x2713; Done</button>
-        <button class="ac-btn-help">Break it down</button>
+      <div class="process-step fade-up">
+        <div class="step-num">04 — Optimize</div>
+        <h4>Analyze and improve</h4>
+        <p>Regular performance reviews with data-backed decisions. What's working gets scaled. What isn't gets cut or rebuilt from a better angle.</p>
       </div>
     </div>
-    <div class="user-msg">
-      <div class="user-bubble">Done. Felt weird but I did it.</div>
+  </div>
+</section>
+
+<!-- WORK SAMPLES -->
+<section id="samples" class="samples">
+  <div class="section-inner">
+    <p class="section-eyebrow">Work Samples</p>
+    <h2 class="section-title">Edits &amp; graphics</h2>
+    <p class="section-desc">A selection of video edits, graphics, and content produced for clients across industries.</p>
+    <div class="work-grid">
+      <div class="work-item">
+        <div class="work-icon">🎬</div>
+        <div class="work-item-label">ProductFlow — Reel Edit</div>
+        <div class="work-item-sub">Video · Instagram</div>
+      </div>
+      <div class="work-item">
+        <div class="work-icon">🎬</div>
+        <div class="work-item-label">The Elites — Brand Reel</div>
+        <div class="work-item-sub">Video · Instagram</div>
+      </div>
+      <div class="work-item">
+        <div class="work-icon">🎨</div>
+        <div class="work-item-label">TheCuralate — Carousel</div>
+        <div class="work-item-sub">Graphic · LinkedIn</div>
+      </div>
+      <div class="work-item">
+        <div class="work-icon">🎨</div>
+        <div class="work-item-label">CrownMedia — Real Estate Posts</div>
+        <div class="work-item-sub">Graphics · Instagram</div>
+      </div>
+      <div class="work-item">
+        <div class="work-icon">🎬</div>
+        <div class="work-item-label">Aptiw — TikTok Edit</div>
+        <div class="work-item-sub">Video · TikTok</div>
+      </div>
+      <div class="work-item">
+        <div class="work-icon">🎨</div>
+        <div class="work-item-label">Brand Storytelling Post</div>
+        <div class="work-item-sub">Graphic · Multi-platform</div>
+      </div>
     </div>
-    <div class="dash-msg">
-      <div class="dash-avatar">&#x26A1;</div>
-      <div class="dash-bubble"><strong>THAT'S the one.</strong> Weird means it's new. New means it's working. &#x1F525; Streak locked.</div>
-    </div>
-    <div class="streak-row">
-      <span>&#x1F525;</span>
-      <span>7 day streak &middot; Keep going</span>
+    <p class="work-note">↑ Replace these placeholder cards with your actual video embeds and image previews — link to your Google Drive, Notion, or embed directly.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="section-inner">
+    <div class="contact-box">
+      <h2>Let's build something<br>that <em>actually works.</em></h2>
+      <p>If you're a founder or growth brand ready to stop guessing at social and start seeing real business results — I'd love to talk about what that looks like for you.</p>
+      <div class="contact-links">
+        <a href="mailto:contactnoraelegha@gmail.com" class="btn-primary">Email me →</a>
+        <a href="https://linkedin.com/in/noraelegha" target="_blank" class="btn-ghost">LinkedIn (4.3K+ followers)</a>
+      </div>
     </div>
   </div>
-</div>
-
-<!-- PERSONAS -->
-<div class="personas">
-  <p class="section-label">Who Stride is for</p>
-  <h2 class="section-title">Not defined by your goal. Defined by your relationship with it.</h2>
-  <p class="section-body" style="margin-bottom:56px;max-width:640px">
-    Stride has users relocating to new countries, finishing books, learning new languages, building businesses, studying for certifications, and switching careers. On the surface that looks like six different products. The underlying problem is identical across all of them. They had a goal, did not know the next step, and kept stopping somewhere between wanting and doing.
-    <br><br>
-    <strong style="color:var(--white)">If that is you, Stride was built for you.</strong>
-  </p>
-
-  <div class="persona-grid">
-    <div class="persona-card">
-      <span class="persona-icon">&#x1F680;</span>
-      <h3 class="persona-name">The Solo-Hustler</h3>
-      <p class="persona-pain">You know you should be posting, networking, building but you are paralysed by where to start and overwhelmed by the long game.</p>
-      <p class="persona-fix">Stride breaks "build an empire" into "write one sentence today."</p>
-    </div>
-    <div class="persona-card">
-      <span class="persona-icon">&#x1F4DA;</span>
-      <h3 class="persona-name">The Learner</h3>
-      <p class="persona-pain">The exam, the certification, the new skill. The resource list is long. The motivation comes and goes. Nothing actually gets done.</p>
-      <p class="persona-fix">Stride gives you the next page. Not the whole book.</p>
-    </div>
-    <div class="persona-card">
-      <span class="persona-icon">&#x1F504;</span>
-      <h3 class="persona-name">The Career Pivot-er</h3>
-      <p class="persona-pain">You know what you want to move toward. You just cannot figure out what to do today that actually gets you there.</p>
-      <p class="persona-fix">Stride gives you one task. You can rest after.</p>
-    </div>
-  </div>
-
-</div>
-
-<!-- FINAL CTA -->
-<div class="final-cta" id="join">
-  <div class="final-inner">
-    <h2>Your goal is still waiting.<br><em style="color:var(--gold)">So is Dash.</em></h2>
-    <p>Join the waitlist. Be first in when we launch. No spam. Just Dash.</p>
-
-    <div id="finalFormWrap">
-      <form class="final-form" id="finalForm" onsubmit="handleSubmit(event,'finalSuccess','finalFormWrap')">
-        <input class="hero-input" type="text" placeholder="Your name" required>
-        <input class="hero-input" type="email" placeholder="Your email address" required>
-        <input class="hero-input" type="text" placeholder="What goal are you working toward?" required>
-        <button class="hero-btn" type="submit">Join waitlist</button>
-      </form>
-      <p class="hero-note" style="margin-top:16px">Free to join. Early access members get 14 days of full Pro access at launch.</p>
-      <a href="https://chat.whatsapp.com/DDE9BOhMmauCnTkkpFxY5A" target="_blank" class="community-btn">
-        &#x1F4AC; Already joined? Come meet the community
-      </a>
-    </div>
-
-    <div class="success-state" id="finalSuccess">
-      <div class="success-icon">&#x26A1;</div>
-      <div class="success-title">Locked in. Dash will find you.</div>
-      <div class="success-sub">You will hear from us before anyone else. While you wait, join the community where early members are already building daily.</div>
-      <a href="https://chat.whatsapp.com/DDE9BOhMmauCnTkkpFxY5A" target="_blank" class="community-btn">
-        &#x1F4AC; Join the Stride community
-      </a>
-    </div>
-  </div>
-</div>
+</section>
 
 <footer>
-  <span>&copy; 2026 Stride. All rights reserved.</span>
-  <span>Built in Lagos. &#x1F1F3;&#x1F1EC;</span>
+  <p>© 2026 Nora Elegha &nbsp;·&nbsp; <a href="mailto:contactnoraelegha@gmail.com">contactnoraelegha@gmail.com</a> &nbsp;·&nbsp; Social Media Growth Strategist</p>
 </footer>
 
 <script>
-var GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfQXAW8ZQ8DdweRsz8_FPCY7ironeA8cfgEScXfcs5HOc2KBA/formResponse';
-var ENTRY_NAME  = 'entry.1837281532';
-var ENTRY_EMAIL = 'entry.1150471511';
-var ENTRY_GOAL  = 'entry.1632672492';
-
-function handleSubmit(e, successId, wrapId) {
-  e.preventDefault();
-  var form = e.target;
-  var btn = form.querySelector('button[type="submit"]');
-  var inputs = form.querySelectorAll('input');
-  var name = '', email = '', goal = '';
-
-  inputs.forEach(function(input) {
-    var p = input.placeholder.toLowerCase();
-    if (p.includes('name')) name = input.value;
-    else if (input.type === 'email') email = input.value;
-    else if (p.includes('goal')) goal = input.value;
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
   });
-
-  btn.classList.add('btn-loading');
-  btn.disabled = true;
-
-  var iframeName = 'gf_iframe_' + Date.now();
-  var iframe = document.createElement('iframe');
-  iframe.style.display = 'none';
-  iframe.name = iframeName;
-  document.body.appendChild(iframe);
-
-  var gForm = document.createElement('form');
-  gForm.method = 'POST';
-  gForm.action = GOOGLE_FORM_URL;
-  gForm.target = iframeName;
-
-  [[ENTRY_NAME, name], [ENTRY_EMAIL, email], [ENTRY_GOAL, goal]].forEach(function(pair) {
-    var inp = document.createElement('input');
-    inp.type = 'hidden';
-    inp.name = pair[0];
-    inp.value = pair[1];
-    gForm.appendChild(inp);
-  });
-
-  document.body.appendChild(gForm);
-  gForm.submit();
-
-  setTimeout(function() {
-    var wrap = document.getElementById(wrapId);
-    var success = document.getElementById(successId);
-    if (wrap) wrap.style.display = 'none';
-    if (success) success.style.display = 'flex';
-    try { document.body.removeChild(gForm); document.body.removeChild(iframe); } catch(err) {}
-  }, 900);
-}
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
