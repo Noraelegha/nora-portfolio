@@ -111,21 +111,6 @@ section{padding:5rem 2rem;}
 .case-metric-num{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--accent);letter-spacing:-0.02em;word-break:break-word;overflow-wrap:break-word;}
 .case-metric-label{font-size:0.7rem;color:var(--text-muted);line-height:1.3;margin-top:3px;}
 
-/* ── TESTIMONIALS ── */
-.testimonials{border-top:1px solid var(--border);}
-.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
-.testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;transition:border-color 0.25s;}
-.testimonial-card:hover{border-color:var(--accent-border);}
-.testimonial-quote{font-size:2.5rem;line-height:1;color:var(--accent);font-family:'Syne',sans-serif;font-weight:800;margin-bottom:1rem;opacity:0.6;}
-.testimonial-text{font-size:0.95rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem;font-style:italic;}
-.testimonial-text strong{color:var(--text);font-style:normal;font-weight:500;}
-.testimonial-author{display:flex;align-items:center;gap:0.75rem;}
-.testimonial-avatar{width:38px;height:38px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:0.85rem;color:var(--accent);flex-shrink:0;}
-.testimonial-name{font-weight:600;font-size:0.9rem;color:var(--text);}
-.testimonial-role{font-size:0.78rem;color:var(--text-muted);}
-.testimonial-placeholder{border:1px dashed rgba(139,92,246,0.2);background:transparent;}
-.testimonial-placeholder .testimonial-text{opacity:0.4;}
-
 /* ── PROCESS ── */
 .process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;}
 .process-step{padding:1.75rem;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:border-color 0.25s;}
@@ -136,21 +121,23 @@ section{padding:5rem 2rem;}
 
 /* ── WORK SAMPLES ── */
 .samples-section{background:var(--bg);border-top:1px solid var(--border);}
-.samples-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-bottom:2.5rem;}
-.sample-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.25s,transform 0.25s;text-decoration:none;display:block;}
-.sample-card:hover{border-color:var(--accent-border);transform:translateY(-3px);}
-.sample-thumb{width:100%;aspect-ratio:16/10;overflow:hidden;position:relative;}
+.samples-grid{columns:3;column-gap:0.875rem;margin-bottom:2.5rem;}
+.sample-card{break-inside:avoid;margin-bottom:0.875rem;background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color 0.25s,transform 0.2s;text-decoration:none;display:block;}
+.sample-card:hover{border-color:var(--accent-border);transform:translateY(-2px);}
+.sample-thumb{width:100%;overflow:hidden;position:relative;}
 .sample-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;}
 .sample-card:hover .sample-thumb img{transform:scale(1.04);}
-.sample-thumb-empty{width:100%;aspect-ratio:16/10;background:linear-gradient(135deg,var(--card) 0%,var(--surface) 100%);display:flex;align-items:center;justify-content:center;}
-.sample-type-pill{position:absolute;top:12px;left:12px;background:rgba(7,6,15,0.75);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:100px;padding:0.25rem 0.7rem;font-size:0.7rem;font-weight:600;color:var(--accent-light);letter-spacing:0.05em;text-transform:uppercase;}
-.sample-info{padding:1rem 1.25rem 1.25rem;}
-.sample-brand{font-size:0.72rem;color:var(--accent);font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:0.2rem;}
-.sample-title{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.2rem;}
-.sample-meta{font-size:0.77rem;color:var(--text-muted);}
+.sample-thumb-empty{width:100%;}
+.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:rgba(255,255,255,0.18);backdrop-filter:blur(6px);border:2px solid rgba(255,255,255,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
+.sample-card:hover .play-btn{background:rgba(139,92,246,0.7);border-color:var(--accent);}
+.sample-info{padding:0.75rem 1rem 0.875rem;}
+.sample-brand{font-size:0.68rem;color:var(--accent);font-weight:700;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:0.15rem;}
+.sample-title{font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:700;color:var(--text);}
 .samples-cta-strip{background:var(--card);border:1px solid var(--accent-border);border-radius:14px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
 .samples-cta-strip p{font-size:0.95rem;color:var(--text-muted);max-width:480px;line-height:1.65;}
 .samples-cta-strip strong{color:var(--text);}
+@media(max-width:900px){.samples-grid{columns:2;}}
+@media(max-width:500px){.samples-grid{columns:2;column-gap:0.5rem;}.sample-card{margin-bottom:0.5rem;}}
 
 /* ── CONTACT ── */
 .contact{background:var(--surface);border-top:1px solid var(--border);}
@@ -425,56 +412,6 @@ footer a{color:var(--accent);text-decoration:none;}
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="section-inner">
-    <p class="section-eyebrow">Client Testimonials</p>
-    <h2 class="section-title">What clients say</h2>
-    <p class="section-desc">100% client retention across every engagement. Here's why they stayed.</p>
-    <div class="testimonials-grid">
-
-      <!--
-      ══════════════════════════════════════════════════
-      HOW TO ADD A REAL TESTIMONIAL:
-      Ask a client for a short quote - even one or two
-      sentences about working with you. Replace the
-      placeholder text below with their words, update
-      the name/role, and remove the testimonial-placeholder
-      class from the card.
-      ══════════════════════════════════════════════════
-      -->
-
-      <div class="testimonial-card testimonial-placeholder fade-up">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">
-          [A client quote goes here - even 1–2 genuine sentences about working with you will do more than any metric. You have 100% retention across every engagement. Someone has said something real. Ask them.]
-        </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">-</div>
-          <div>
-            <div class="testimonial-name">Client Name</div>
-            <div class="testimonial-role">Role · Company</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card testimonial-placeholder fade-up">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">
-          [Second testimonial here. Aim for one from a B2B/SaaS client and one from a service brand - showing range without losing focus on your core market.]
-        </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">-</div>
-          <div>
-            <div class="testimonial-name">Client Name</div>
-            <div class="testimonial-role">Role · Company</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- PROCESS -->
 <section id="process">
@@ -539,81 +476,64 @@ footer a{color:var(--accent);text-decoration:none;}
 
     <div class="samples-grid">
 
-      <!-- CARD 1: Replace href with your video/Canva link. Replace background colour with <img src="YOUR_URL"> -->
-      <a href="#" target="_blank" class="sample-card fade-up">
+      <!-- Video 1: Short (portrait) -->
+      <a href="https://youtube.com/shorts/cdvhawLE2j0" target="_blank" class="sample-card fade-up">
         <div class="sample-thumb">
-          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#1a1232 0%,#2a1a4a 100%);"></div>
-          <span class="sample-type-pill">Video Edit</span>
-        </div>
-        <div class="sample-info">
-          <div class="sample-brand">ProductFlow HQ</div>
-          <div class="sample-title">PM Tips Reel</div>
-          <div class="sample-meta">Instagram · Hook-to-CTA format</div>
+          <img src="https://img.youtube.com/vi/cdvhawLE2j0/hqdefault.jpg" alt="Video edit" style="aspect-ratio:9/16;object-fit:cover;">
+          <div class="play-btn"><svg width="13" height="15" viewBox="0 0 13 15" fill="white"><polygon points="0,0 13,7.5 0,15"/></svg></div>
         </div>
       </a>
 
-      <!-- CARD 2 -->
-      <a href="#" target="_blank" class="sample-card fade-up">
+      <!-- Graphic 1: Sticky Product Formula -->
+      <a href="https://res.cloudinary.com/daptpy1yh/image/upload/f_auto,q_auto/The_Sticky_Product_Formula_1_uwjoq7" target="_blank" class="sample-card fade-up">
         <div class="sample-thumb">
-          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#1a1222 0%,#2a1535 100%);"></div>
-          <span class="sample-type-pill">Video Edit</span>
-        </div>
-        <div class="sample-info">
-          <div class="sample-brand">The Elites</div>
-          <div class="sample-title">Brand Story Reel</div>
-          <div class="sample-meta">Instagram · Luxury positioning</div>
+          <img src="https://res.cloudinary.com/daptpy1yh/image/upload/f_auto,q_auto/The_Sticky_Product_Formula_1_uwjoq7" alt="Graphic design">
         </div>
       </a>
 
-      <!-- CARD 3 -->
-      <a href="#" target="_blank" class="sample-card fade-up">
+      <!-- Video 2: Short (portrait) -->
+      <a href="https://youtube.com/shorts/bgRULbpVRsg" target="_blank" class="sample-card fade-up">
         <div class="sample-thumb">
-          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#121a22 0%,#152232 100%);"></div>
-          <span class="sample-type-pill">Video Edit</span>
-        </div>
-        <div class="sample-info">
-          <div class="sample-brand">Aptiw Limited</div>
-          <div class="sample-title">TikTok Brand Edit</div>
-          <div class="sample-meta">TikTok · Trend-led format</div>
+          <img src="https://img.youtube.com/vi/bgRULbpVRsg/hqdefault.jpg" alt="Video edit" style="aspect-ratio:9/16;object-fit:cover;">
+          <div class="play-btn"><svg width="13" height="15" viewBox="0 0 13 15" fill="white"><polygon points="0,0 13,7.5 0,15"/></svg></div>
         </div>
       </a>
 
-      <!-- CARD 4 -->
-      <a href="#" target="_blank" class="sample-card fade-up">
+      <!-- Graphic 2: Who LinkedIn Serves -->
+      <a href="https://res.cloudinary.com/daptpy1yh/image/upload/v1782379592/Who_LinkedIn_Serves_emep4i.png" target="_blank" class="sample-card fade-up">
         <div class="sample-thumb">
-          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#121822 0%,#1a2535 100%);"></div>
-          <span class="sample-type-pill">Graphic Design</span>
-        </div>
-        <div class="sample-info">
-          <div class="sample-brand">TheCuralate</div>
-          <div class="sample-title">Authority Carousel</div>
-          <div class="sample-meta">LinkedIn · Educational series</div>
+          <img src="https://res.cloudinary.com/daptpy1yh/image/upload/v1782379592/Who_LinkedIn_Serves_emep4i.png" alt="Graphic design">
         </div>
       </a>
 
-      <!-- CARD 5 -->
-      <a href="#" target="_blank" class="sample-card fade-up">
+      <!-- Video 3: Regular YouTube (landscape) -->
+      <a href="https://youtu.be/QpEzeKzadEw" target="_blank" class="sample-card fade-up">
         <div class="sample-thumb">
-          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#121a18 0%,#152a22 100%);"></div>
-          <span class="sample-type-pill">Graphic Design</span>
-        </div>
-        <div class="sample-info">
-          <div class="sample-brand">CrownMedia</div>
-          <div class="sample-title">Real Estate Listing Posts</div>
-          <div class="sample-meta">Instagram · Property series</div>
+          <img src="https://img.youtube.com/vi/QpEzeKzadEw/hqdefault.jpg" alt="Video edit">
+          <div class="play-btn"><svg width="13" height="15" viewBox="0 0 13 15" fill="white"><polygon points="0,0 13,7.5 0,15"/></svg></div>
         </div>
       </a>
 
-      <!-- CARD 6 -->
-      <a href="#" target="_blank" class="sample-card fade-up">
+      <!-- Graphic 3: Sticky Product Formula 2 -->
+      <a href="https://res.cloudinary.com/daptpy1yh/image/upload/v1782377752/The_Sticky_Product_Formula_2_gurfvv.png" target="_blank" class="sample-card fade-up">
         <div class="sample-thumb">
-          <div class="sample-thumb-empty" style="background:linear-gradient(135deg,#1a1a12 0%,#2a2515 100%);"></div>
-          <span class="sample-type-pill">Graphic Design</span>
+          <img src="https://res.cloudinary.com/daptpy1yh/image/upload/v1782377752/The_Sticky_Product_Formula_2_gurfvv.png" alt="Graphic design">
         </div>
-        <div class="sample-info">
-          <div class="sample-brand">The Elites</div>
-          <div class="sample-title">Brand Storytelling Post</div>
-          <div class="sample-meta">Instagram · Luxury aesthetic</div>
+      </a>
+
+      <!-- Video 4: Short (portrait) -->
+      <a href="https://youtube.com/shorts/8oMtmHL_Ios" target="_blank" class="sample-card fade-up">
+        <div class="sample-thumb">
+          <img src="https://img.youtube.com/vi/8oMtmHL_Ios/hqdefault.jpg" alt="Video edit" style="aspect-ratio:9/16;object-fit:cover;">
+          <div class="play-btn"><svg width="13" height="15" viewBox="0 0 13 15" fill="white"><polygon points="0,0 13,7.5 0,15"/></svg></div>
+        </div>
+      </a>
+
+      <!-- Video 5: Short (portrait) -->
+      <a href="https://youtube.com/shorts/U1Phl2CyqFM" target="_blank" class="sample-card fade-up">
+        <div class="sample-thumb">
+          <img src="https://img.youtube.com/vi/U1Phl2CyqFM/hqdefault.jpg" alt="Video edit" style="aspect-ratio:9/16;object-fit:cover;">
+          <div class="play-btn"><svg width="13" height="15" viewBox="0 0 13 15" fill="white"><polygon points="0,0 13,7.5 0,15"/></svg></div>
         </div>
       </a>
 
