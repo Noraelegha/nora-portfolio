@@ -119,6 +119,27 @@ section{padding:5rem 2rem;}
 .process-step h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.5rem;}
 .process-step p{font-size:0.84rem;color:var(--text-muted);line-height:1.65;}
 
+/* ── ANALYTICS ── */
+.analytics-section{background:var(--surface);border-top:1px solid var(--border);}
+.analytics-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;}
+.analytics-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:border-color 0.25s;}
+.analytics-card:hover{border-color:var(--accent-border);}
+.analytics-card-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+.analytics-big-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:var(--text);letter-spacing:-0.04em;line-height:1;margin-bottom:0.3rem;}
+.analytics-sub{font-size:0.82rem;color:var(--text-muted);line-height:1.5;}
+.analytics-sub strong{color:var(--accent-light);font-weight:600;}
+.analytics-bar-wrap{margin-top:1.25rem;}
+.analytics-bar-label{display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-muted);margin-bottom:0.4rem;}
+.analytics-bar-track{background:rgba(255,255,255,0.06);border-radius:100px;height:6px;overflow:hidden;}
+.analytics-bar-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--accent-light));}
+.analytics-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.analytics-mini{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;text-align:center;}
+.analytics-mini-num{font-family:'Syne',sans-serif;font-size:1.75rem;font-weight:800;color:var(--accent);letter-spacing:-0.03em;margin-bottom:0.25rem;}
+.analytics-mini-label{font-size:0.75rem;color:var(--text-muted);line-height:1.4;}
+.analytics-note{font-size:0.78rem;color:var(--text-dim);text-align:center;margin-top:1.25rem;}
+.analytics-note a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.analytics-grid{grid-template-columns:1fr;}.analytics-row{grid-template-columns:1fr 1fr;}}
+
 /* ── WORK SAMPLES ── */
 .samples-section{background:var(--bg);border-top:1px solid var(--border);}
 .samples-grid{columns:3;column-gap:0.875rem;margin-bottom:2.5rem;}
@@ -182,6 +203,7 @@ footer a{color:var(--accent);text-decoration:none;}
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#work">Case Studies</a></li>
+    <li><a href="#analytics">Analytics</a></li>
     <li><a href="#samples">Work Samples</a></li>
     <li><a href="#contact" class="nav-cta">Work with me</a></li>
   </ul>
@@ -233,8 +255,8 @@ footer a{color:var(--accent);text-decoration:none;}
       <div class="stat-label">Reach growth<br>in 90 days</div>
     </div>
     <div class="stat">
-      <div class="stat-num">1,003%</div>
-      <div class="stat-label">LinkedIn impression<br>growth in 6 months</div>
+      <div class="stat-num">5,059</div>
+      <div class="stat-label">LinkedIn followers<br>built from 1.3K organically</div>
     </div>
   </div>
 </div>
@@ -248,7 +270,7 @@ footer a{color:var(--accent);text-decoration:none;}
         <h2 class="section-title">Social media doesn't<br>fix brands. It <em style="font-style:normal;color:var(--accent);">amplifies</em> them.</h2>
         <p>Give me a brand with real clarity - a founder who knows what they're building, who they're building it for, and why it matters - and I'll build a content system around that clarity that makes the right people impossible to ignore. What I won't do is use content to paper over positioning problems. That's not a content job. That's a business job.</p>
         <p>I've spent 4+ years working with B2B SaaS, consulting, real estate, and growth-stage brands - building content strategies from the ground up, managing multi-client portfolios, and leading cross-functional teams. My edge is connecting platform performance to <strong>actual business outcomes</strong>: leads, bookings, pipeline, and authority.</p>
-        <p>I practice what I preach. I've grown my own LinkedIn to <strong>4,526 followers organically</strong> - the same system I build for clients, running on my own brand.</p>
+        <p>I practice what I preach. I've grown my own LinkedIn to <strong>5,059 followers organically</strong> - the same system I build for clients, running on my own brand.</p>
         <div class="skills-row">
           <span class="skill-tag">Multi-platform strategy</span>
           <span class="skill-tag">Short-form video</span>
@@ -309,23 +331,23 @@ footer a{color:var(--accent);text-decoration:none;}
         <h3>LinkedIn Personal Branding</h3>
         <p class="case-sector">Self-Directed · Jan 2026 - Present</p>
         <p class="case-desc">While between client engagements, I ran the strategy on myself. Treated my LinkedIn like a client account - defined content pillars, built a consistent posting cadence, and grew an audience of founders and operators who care about brand building and social strategy.</p>
-        <p class="case-challenge"><strong>The proof:</strong> No budget. No team. No ad spend. Just the strategy applied cold to a profile sitting at 1,000 followers. The same system I build for clients, running on my own brand. <a href="https://linkedin.com/in/noraelegha" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:600;">See it live →</a></p>
+        <p class="case-challenge"><strong>The proof:</strong> No budget. No team. No ad spend. The account started flat, compounded from month 3, and hasn't slowed down since. Same system I build for clients - running live on my own brand. <a href="https://linkedin.com/in/nora-elegha-506129236" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:600;">Verify it here →</a></p>
         <div class="case-metrics">
           <div class="case-metric-item">
-            <div class="case-metric-num">4,526</div>
-            <div class="case-metric-label">Total followers - up 318% in 6 months</div>
+            <div class="case-metric-num">5,059</div>
+            <div class="case-metric-label">Followers - up from 1,300 in January 2026</div>
           </div>
           <div class="case-metric-item">
-            <div class="case-metric-num">38,674</div>
-            <div class="case-metric-label">Impressions - up 1,003% vs prior period</div>
+            <div class="case-metric-num">10,742</div>
+            <div class="case-metric-label">Impressions in the last 90 days alone</div>
           </div>
           <div class="case-metric-item">
-            <div class="case-metric-num">1k-4.5k</div>
-            <div class="case-metric-label">Follower growth in under 6 months</div>
+            <div class="case-metric-num">2,186</div>
+            <div class="case-metric-label">Unique members reached in 90 days</div>
           </div>
           <div class="case-metric-item">
             <div class="case-metric-num">$0</div>
-            <div class="case-metric-label">Ad spend used</div>
+            <div class="case-metric-label">Ad spend - entirely organic growth</div>
           </div>
         </div>
       </div>
@@ -496,6 +518,58 @@ footer a{color:var(--accent);text-decoration:none;}
   </div>
 </section>
 
+<!-- ANALYTICS -->
+<section id="analytics" class="analytics-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">By The Numbers</p>
+    <h2 class="section-title">My own LinkedIn.<br>Live proof of the system.</h2>
+    <p class="section-desc">I run the same strategy on my own brand that I build for clients. These are the real numbers - pulled directly from LinkedIn Analytics.</p>
+
+    <div class="analytics-grid">
+      <div class="analytics-card fade-up">
+        <div class="analytics-card-label">Follower Growth · Jan - Jul 2026</div>
+        <div class="analytics-big-num">5,059</div>
+        <div class="analytics-sub">Total followers today. Started at <strong>1,300 in January</strong> - grown entirely through organic content strategy, zero ad spend.</div>
+        <div class="analytics-bar-wrap">
+          <div class="analytics-bar-label"><span>Jan 2026</span><span>Jul 2026</span></div>
+          <div class="analytics-bar-track"><div class="analytics-bar-fill" style="width:100%;"></div></div>
+          <div class="analytics-bar-label" style="margin-top:0.3rem;"><span style="color:var(--text-muted);">1,300</span><span style="color:var(--accent-light);font-weight:600;">5,059</span></div>
+        </div>
+      </div>
+
+      <div class="analytics-card fade-up">
+        <div class="analytics-card-label">Content Performance · Last 90 Days</div>
+        <div class="analytics-big-num">10,742</div>
+        <div class="analytics-sub">Impressions in the last 90 days. Reaching <strong>2,186 unique members</strong> per period - compounding month on month.</div>
+        <div class="analytics-bar-wrap">
+          <div class="analytics-bar-label"><span>Apr 2026</span><span>Jul 2026</span></div>
+          <div class="analytics-bar-track">
+            <div class="analytics-bar-fill" style="width:100%;background:linear-gradient(90deg,rgba(139,92,246,0.3),var(--accent-light));"></div>
+          </div>
+          <div class="analytics-bar-label" style="margin-top:0.3rem;"><span style="color:var(--text-muted);">Flat</span><span style="color:var(--accent-light);font-weight:600;">800+ days</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="analytics-row">
+      <div class="analytics-mini fade-up">
+        <div class="analytics-mini-num">3,759</div>
+        <div class="analytics-mini-label">New followers gained<br>since January</div>
+      </div>
+      <div class="analytics-mini fade-up">
+        <div class="analytics-mini-num">531</div>
+        <div class="analytics-mini-label">Impressions on single best post<br>in the last 90 days</div>
+      </div>
+      <div class="analytics-mini fade-up">
+        <div class="analytics-mini-num">$0</div>
+        <div class="analytics-mini-label">Ad spend<br>100% organic</div>
+      </div>
+    </div>
+
+    <p class="analytics-note">All numbers are real and verifiable. <a href="https://www.linkedin.com/in/nora-elegha-506129236" target="_blank">View the live profile →</a></p>
+  </div>
+</section>
+
 <!-- WORK SAMPLES -->
 <section id="samples" class="samples-section">
   <div class="section-inner">
@@ -607,7 +681,7 @@ footer a{color:var(--accent);text-decoration:none;}
       <p>If you're a founder or growth brand ready to stop guessing at social and start seeing real business results - I'd love to talk.</p>
       <div class="contact-links">
         <a href="mailto:contactnoraelegha@gmail.com" class="btn-primary">Email me →</a>
-        <a href="https://linkedin.com/in/noraelegha" target="_blank" class="btn-ghost">LinkedIn (4.5K+ followers)</a>
+        <a href="https://linkedin.com/in/nora-elegha-506129236" target="_blank" class="btn-ghost">LinkedIn (5K+ followers)</a>
       </div>
     </div>
   </div>
