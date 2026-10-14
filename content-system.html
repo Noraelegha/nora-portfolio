@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content System Framework — Arcflow</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#F8F7FF;color:#1a1a2e;font-size:13px;line-height:1.6;}
+.page{max-width:900px;margin:0 auto;padding:2rem;}
+.cover{background:#0D0A1A;border-radius:16px;padding:2.5rem 3rem;margin-bottom:2rem;display:flex;justify-content:space-between;align-items:flex-end;}
+.cover-left h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:0.4rem;}
+.cover-left h1 span{color:#8B5CF6;}
+.cover-left p{color:#847EA8;font-size:0.85rem;}
+.cover-right .brand-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:#8B5CF6;text-align:right;}
+.cover-right .prepared{font-size:0.75rem;color:#4A4570;margin-top:0.2rem;text-align:right;}
+.section{background:#fff;border-radius:12px;padding:1.75rem 2rem;margin-bottom:1.5rem;border:1px solid #EBEBF5;}
+.section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8B5CF6;margin-bottom:0.5rem;}
+.section-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:#0D0A1A;margin-bottom:1.25rem;}
+.snapshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.snapshot-item{background:#F8F7FF;border-radius:8px;padding:1rem;}
+.snapshot-item label{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8B5CF6;display:block;margin-bottom:0.3rem;}
+.snapshot-item p{font-size:0.85rem;color:#1a1a2e;font-weight:500;}
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.pillar{border-radius:10px;padding:1.25rem;position:relative;overflow:hidden;}
+.p1{background:#EDE9FE;border:1px solid #C4B5FD;}
+.p2{background:#E0F2FE;border:1px solid #BAE6FD;}
+.p3{background:#F0FDF4;border:1px solid #86EFAC;}
+.p4{background:#FEF3C7;border:1px solid #FCD34D;}
+.pnum{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;opacity:0.12;position:absolute;top:0.5rem;right:0.75rem;}
+.p1 .pnum{color:#7C3AED;}.p2 .pnum{color:#0284C7;}.p3 .pnum{color:#16A34A;}.p4 .pnum{color:#D97706;}
+.ptag{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem;display:block;}
+.p1 .ptag{color:#7C3AED;}.p2 .ptag{color:#0284C7;}.p3 .ptag{color:#16A34A;}.p4 .ptag{color:#D97706;}
+.pillar h3{font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:800;color:#0D0A1A;margin-bottom:0.4rem;}
+.pillar p{font-size:0.78rem;color:#4A5568;line-height:1.55;}
+.pgoal{font-size:0.7rem;font-weight:600;margin-top:0.6rem;padding:0.25rem 0.6rem;border-radius:100px;display:inline-block;}
+.p1 .pgoal{background:#DDD6FE;color:#5B21B6;}.p2 .pgoal{background:#BAE6FD;color:#0C4A6E;}.p3 .pgoal{background:#BBF7D0;color:#14532D;}.p4 .pgoal{background:#FDE68A;color:#78350F;}
+.format-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;}
+.fi{background:#F8F7FF;border-radius:8px;padding:1rem;text-align:center;border:1px solid #EBEBF5;}
+.fpct{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:#8B5CF6;}
+.ftype{font-size:0.75rem;font-weight:600;color:#0D0A1A;margin:0.2rem 0;}
+.fwhy{font-size:0.68rem;color:#847EA8;line-height:1.4;}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:0.5rem;}
+.day{border-radius:8px;padding:0.6rem 0.4rem;text-align:center;}
+.dl{font-size:0.65rem;font-weight:700;color:#847EA8;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;}
+.dc{font-size:0.68rem;font-weight:600;line-height:1.4;}
+.da{background:#EDE9FE;border:1px solid #C4B5FD;}.da .dc{color:#5B21B6;}
+.dr{background:#F8F7FF;border:1px solid #EBEBF5;}.dr .dc{color:#CBD5E0;}
+.dh{background:#0D0A1A;border:1px solid #0D0A1A;}.dh .dl{color:#8B5CF6;}.dh .dc{color:#fff;}
+.funnel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.fs{border-radius:10px;padding:1.25rem;}
+.ft{background:#FEF3C7;border:1px solid #FCD34D;}.fm{background:#E0F2FE;border:1px solid #BAE6FD;}.fb{background:#F0FDF4;border:1px solid #86EFAC;}
+.fs h4{font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:0.75rem;}
+.ft h4{color:#92400E;}.fm h4{color:#0C4A6E;}.fb h4{color:#14532D;}
+.fs ul{padding-left:1rem;}.fs li{font-size:0.75rem;color:#4A5568;margin-bottom:0.3rem;}
+.fkpi{font-size:0.68rem;font-weight:700;margin-top:0.75rem;padding:0.3rem 0.6rem;border-radius:6px;display:inline-block;}
+.ft .fkpi{background:#FDE68A;color:#78350F;}.fm .fkpi{background:#BAE6FD;color:#0C4A6E;}.fb .fkpi{background:#BBF7D0;color:#14532D;}
+.ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.ex{background:#F8F7FF;border-radius:8px;padding:1rem;border-left:3px solid #8B5CF6;}
+.ep{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8B5CF6;margin-bottom:0.3rem;}
+.ef{font-size:0.68rem;color:#847EA8;margin-bottom:0.4rem;}
+.eh{font-size:0.82rem;font-weight:600;color:#0D0A1A;font-style:italic;margin-bottom:0.3rem;}
+.eb{font-size:0.75rem;color:#4A5568;line-height:1.5;}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.ki{background:#0D0A1A;border-radius:10px;padding:1.1rem;}
+.km{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8B5CF6;margin-bottom:0.3rem;}
+.kt{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;}
+.kw{font-size:0.7rem;color:#4A4570;margin-top:0.2rem;}
+.footer{text-align:center;padding:1.5rem;color:#847EA8;font-size:0.75rem;}
+.footer strong{color:#8B5CF6;}
+@media print{body{background:#fff;}.page{padding:1rem;}.section{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="cover">
+  <div class="cover-left">
+    <h1>Content System<br><span>Framework</span></h1>
+    <p>LinkedIn and Short-Form Video Strategy · October 2026</p>
+  </div>
+  <div class="cover-right">
+    <div class="brand-name">Arcflow</div>
+    <div class="prepared">Prepared by Nora Elegha</div>
+    <div class="prepared">Social Media Growth Strategist</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Section 01</div>
+  <div class="section-title">Brand Snapshot</div>
+  <div class="snapshot-grid">
+    <div class="snapshot-item"><label>Brand</label><p>Arcflow</p></div>
+    <div class="snapshot-item"><label>What They Do</label><p>B2B workflow automation SaaS for ops teams at scaling startups</p></div>
+    <div class="snapshot-item"><label>Stage</label><p>Seed-funded · 12-person team · Active sales motion</p></div>
+    <div class="snapshot-item"><label>Primary Platform</label><p>LinkedIn (decision-makers) + Instagram (brand awareness)</p></div>
+    <div class="snapshot-item"><label>Primary Audience</label><p>Ops Managers, COOs, and Founders at 20-200 person companies</p></div>
+    <div class="snapshot-item"><label>Content Goal</label><p>Position founder as trusted voice in ops + drive demo bookings</p></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Section 02</div>
+  <div class="section-title">Content Pillars</div>
+  <div class="pillars-grid">
+    <div class="pillar p1"><span class="pnum">01</span><span class="ptag">Authority</span><h3>Ops Intelligence</h3><p>Tactical insights on workflow bottlenecks, team efficiency, and systems thinking. Shows expertise without pitching.</p><span class="pgoal">Builds trust</span></div>
+    <div class="pillar p2"><span class="pnum">02</span><span class="ptag">Social Proof</span><h3>Client Wins</h3><p>Real results from customers — time saved, errors reduced, team capacity freed. Data-led storytelling.</p><span class="pgoal">Drives consideration</span></div>
+    <div class="pillar p3"><span class="pnum">03</span><span class="ptag">Founder Voice</span><h3>Behind the Build</h3><p>Transparent founder content — decisions made, lessons learned, what scaling actually looks like inside.</p><span class="pgoal">Builds connection</span></div>
+    <div class="pillar p4"><span class="pnum">04</span><span class="ptag">Conversion</span><h3>The Problem Frame</h3><p>Content that names the exact pain their audience feels and positions Arcflow as the natural next step.</p><span class="pgoal">Drives demos</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Section 03</div>
+  <div class="section-title">Format Mix</div>
+  <div class="format-grid">
+    <div class="fi"><div class="fpct">40%</div><div class="ftype">Text Posts</div><div class="fwhy">High-performing on LinkedIn. Low production time. Strong for authority and founder voice pillars.</div></div>
+    <div class="fi"><div class="fpct">25%</div><div class="ftype">Carousels</div><div class="fwhy">Best for tactical content — lists, frameworks, step-by-steps. High save and share rate.</div></div>
+    <div class="fi"><div class="fpct">25%</div><div class="ftype">Short-Form Video</div><div class="fwhy">LinkedIn native video and Reels. Prioritised for reach and non-follower discovery.</div></div>
+    <div class="fi"><div class="fpct">10%</div><div class="ftype">Static Graphics</div><div class="fwhy">Data visualisations, quote cards, milestone posts. Used sparingly for maximum impact.</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Section 04</div>
+  <div class="section-title">Weekly Posting Cadence</div>
+  <div class="cal">
+    <div class="day dh"><div class="dl">Mon</div><div class="dc">Ops Intelligence Text Post</div></div>
+    <div class="day dr"><div class="dl">Tue</div><div class="dc">Rest</div></div>
+    <div class="day da"><div class="dl">Wed</div><div class="dc">Client Win Carousel</div></div>
+    <div class="day dr"><div class="dl">Thu</div><div class="dc">Rest</div></div>
+    <div class="day dh"><div class="dl">Fri</div><div class="dc">Short-Form Video</div></div>
+    <div class="day dr"><div class="dl">Sat</div><div class="dc">Rest</div></div>
+    <div class="day da"><div class="dl">Sun</div><div class="dc">Founder Voice Post</div></div>
+  </div>
+  <p style="font-size:0.72rem;color:#847EA8;margin-top:0.75rem;">3-4 posts per week. Monday and Friday at 8am. Wednesday at 9am. Sunday at 6pm. All times adjusted to audience timezone. Schedule reviewed after first 30 days based on performance data.</p>
+</div>
+
+<div class="section">
+  <div class="section-label">Section 05</div>
+  <div class="section-title">Funnel Mapping — Content to Outcome</div>
+  <div class="funnel-grid">
+    <div class="fs ft"><h4>Top of Funnel — Awareness</h4><ul><li>Ops Intelligence text posts</li><li>Short-form video (hook-led)</li><li>Founder perspective posts</li><li>Trending topic commentary</li></ul><span class="fkpi">KPI: Impressions + New Followers</span></div>
+    <div class="fs fm"><h4>Middle of Funnel — Consideration</h4><ul><li>Client win carousels</li><li>Before/after case content</li><li>Problem-framing posts</li><li>Behind-the-build stories</li></ul><span class="fkpi">KPI: Comments + Profile Visits</span></div>
+    <div class="fs fb"><h4>Bottom of Funnel — Conversion</h4><ul><li>Direct CTA posts (demo)</li><li>Testimonial graphics</li><li>Objection-handling content</li><li>Social proof posts</li></ul><span class="fkpi">KPI: Demo Bookings + DMs</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Section 06</div>
+  <div class="section-title">Sample Content Hooks</div>
+  <div class="ex-grid">
+    <div class="ex"><div class="ep">Ops Intelligence</div><div class="ef">LinkedIn Text Post · Monday</div><div class="eh">"Most ops teams don't have a capacity problem. They have a visibility problem."</div><div class="eb">Opens with a reframe. Explains how most bottlenecks come from unclear ownership, not headcount. Ends with a question that drives comments.</div></div>
+    <div class="ex"><div class="ep">Client Win</div><div class="ef">Carousel · Wednesday</div><div class="eh">"We helped a 30-person ops team reclaim 12 hours a week. Here's exactly how."</div><div class="eb">Slide-by-slide breakdown of the problem, the change made, and the measurable outcome. Final slide: soft CTA to book a demo.</div></div>
+    <div class="ex"><div class="ep">Short-Form Video</div><div class="ef">LinkedIn Video / Reel · Friday</div><div class="eh">"The sign your ops team is underwater (and it's not what you think)"</div><div class="eb">Talking-head format. 45-60 seconds. One insight, one example, one takeaway. No product pitch — pure value that drives organic reach.</div></div>
+    <div class="ex"><div class="ep">Founder Voice</div><div class="ef">Text Post · Sunday</div><div class="eh">"We almost built the wrong product. This one conversation saved us."</div><div class="eb">Honest founder story. Connects to the audience's fear of building something nobody wants. Humanises the brand. High share rate.</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Section 07</div>
+  <div class="section-title">90-Day Success Metrics</div>
+  <div class="kpi-grid">
+    <div class="ki"><div class="km">Follower Growth</div><div class="kt">+500</div><div class="kw">Net new LinkedIn followers in 90 days</div></div>
+    <div class="ki"><div class="km">Engagement Rate</div><div class="kt">3%+</div><div class="kw">Average across all post formats</div></div>
+    <div class="ki"><div class="km">Profile Visits</div><div class="kt">2x</div><div class="kw">vs. baseline at start of engagement</div></div>
+    <div class="ki"><div class="km">Demo Inquiries</div><div class="kt">5-8</div><div class="kw">Inbound demo requests from content</div></div>
+  </div>
+  <p style="font-size:0.72rem;color:#847EA8;margin-top:1rem;">Metrics reviewed monthly. Strategy adjusted based on what platform data shows. Every KPI is tied to a business outcome, not a vanity number.</p>
+</div>
+
+<div class="footer">Prepared by <strong>Nora Elegha</strong> · Social Media Growth Strategist · <strong>noraelegha.vercel.app</strong> · contactnoraelegha@gmail.com</div>
+
+</div>
+</body>
+</html>
