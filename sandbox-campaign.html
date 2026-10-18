@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandbox Referral Campaign — Nora Elegha</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#F8F7FF;color:#1a1a2e;font-size:13px;line-height:1.6;}
+.page{max-width:900px;margin:0 auto;padding:2rem;}
+a.back{display:inline-flex;align-items:center;gap:0.4rem;color:#8B5CF6;font-size:0.8rem;font-weight:600;text-decoration:none;margin-bottom:1.5rem;}
+a.back:hover{opacity:0.7;}
+.cover{background:#0D0A1A;border-radius:16px;padding:2.5rem 3rem;margin-bottom:2rem;}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.5rem;}
+.cover-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8B5CF6;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);padding:0.3rem 0.75rem;border-radius:100px;}
+.cover-date{font-size:0.75rem;color:#4A4570;}
+.cover h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:0.5rem;}
+.cover h1 span{color:#8B5CF6;}
+.cover-sub{color:#847EA8;font-size:0.88rem;max-width:520px;}
+.result-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.07);}
+.rs{text-align:center;}
+.rs-num{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:#8B5CF6;}
+.rs-label{font-size:0.68rem;color:#847EA8;margin-top:0.2rem;line-height:1.3;}
+.section{background:#fff;border-radius:12px;padding:1.75rem 2rem;margin-bottom:1.5rem;border:1px solid #EBEBF5;}
+.section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8B5CF6;margin-bottom:0.5rem;}
+.section-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;color:#0D0A1A;margin-bottom:1.25rem;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.info-item{background:#F8F7FF;border-radius:8px;padding:1rem;}
+.info-item label{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8B5CF6;display:block;margin-bottom:0.3rem;}
+.info-item p{font-size:0.85rem;color:#1a1a2e;font-weight:500;}
+.audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;}
+.audience-card{border-radius:8px;padding:1rem;text-align:center;}
+.a1{background:#EDE9FE;border:1px solid #C4B5FD;}
+.a2{background:#E0F2FE;border:1px solid #BAE6FD;}
+.a3{background:#F0FDF4;border:1px solid #86EFAC;}
+.audience-card h4{font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:800;margin-bottom:0.4rem;}
+.a1 h4{color:#5B21B6;}.a2 h4{color:#0C4A6E;}.a3 h4{color:#14532D;}
+.audience-card p{font-size:0.73rem;color:#4A5568;line-height:1.45;}
+.prize{font-size:0.7rem;font-weight:600;margin-top:0.5rem;padding:0.2rem 0.5rem;border-radius:100px;display:inline-block;}
+.a1 .prize{background:#DDD6FE;color:#5B21B6;}
+.a2 .prize{background:#BAE6FD;color:#0C4A6E;}
+.a3 .prize{background:#BBF7D0;color:#14532D;}
+.steps{display:flex;flex-direction:column;gap:0.75rem;}
+.step{display:flex;gap:1rem;align-items:flex-start;}
+.step-num{width:28px;height:28px;background:#8B5CF6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:0.75rem;color:#fff;flex-shrink:0;}
+.step-content h4{font-size:0.85rem;font-weight:600;color:#0D0A1A;margin-bottom:0.15rem;}
+.step-content p{font-size:0.78rem;color:#4A5568;}
+.creative-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.creative-placeholder{background:#F0EEF8;border:2px dashed #C4B5FD;border-radius:10px;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.5rem;}
+.creative-placeholder p{font-size:0.75rem;color:#8B5CF6;font-weight:600;margin-bottom:0.3rem;}
+.creative-placeholder span{font-size:0.68rem;color:#847EA8;}
+/* REPLACE placeholder divs with actual images once uploaded to Cloudinary */
+.analytics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.stat-card{background:#0D0A1A;border-radius:10px;padding:1.1rem;}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#8B5CF6;}
+.stat-label{font-size:0.7rem;color:#4A4570;margin-top:0.2rem;line-height:1.3;}
+.stat-sub{font-size:0.65rem;color:#2D2A3E;margin-top:0.3rem;}
+.analytics-screenshot{background:#F0EEF8;border:2px dashed #C4B5FD;border-radius:10px;padding:1rem;text-align:center;margin-top:1rem;}
+.analytics-screenshot p{font-size:0.75rem;color:#8B5CF6;font-weight:600;}
+.analytics-screenshot span{font-size:0.68rem;color:#847EA8;display:block;margin-top:0.2rem;}
+.insight-box{background:#EDE9FE;border:1px solid #C4B5FD;border-radius:10px;padding:1.25rem;margin-top:1rem;}
+.insight-box h4{font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:800;color:#5B21B6;margin-bottom:0.5rem;}
+.insight-box p{font-size:0.8rem;color:#4A5568;line-height:1.6;}
+.footer{text-align:center;padding:1.5rem;color:#847EA8;font-size:0.75rem;}
+.footer strong{color:#8B5CF6;}
+.footer a{color:#8B5CF6;text-decoration:none;}
+@media(max-width:600px){
+  .result-strip{grid-template-columns:repeat(2,1fr);}
+  .two-col,.creative-grid,.analytics-grid{grid-template-columns:1fr;}
+  .audience-grid{grid-template-columns:1fr;}
+  .cover{padding:1.5rem;}
+  .cover h1{font-size:1.5rem;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back" href="/">← Back to Portfolio</a>
+
+  <div class="cover">
+    <div class="cover-top">
+      <span class="cover-tag">Campaign Case Study</span>
+      <span class="cover-date">2023</span>
+    </div>
+    <h1>Referral Contest<br><span>Sandbox</span></h1>
+    <p class="cover-sub">A community-driven referral campaign that grew a brand's Instagram following by 406% in 3 days — with zero ad spend and a single well-structured incentive mechanic.</p>
+    <div class="result-strip">
+      <div class="rs"><div class="rs-num">79</div><div class="rs-label">Followers at start</div></div>
+      <div class="rs"><div class="rs-num">400+</div><div class="rs-label">Followers after 3 days</div></div>
+      <div class="rs"><div class="rs-num">937</div><div class="rs-label">Comments on campaign post</div></div>
+      <div class="rs"><div class="rs-num">$0</div><div class="rs-label">Ad spend</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 01</div>
+    <div class="section-title">Campaign Overview</div>
+    <div class="two-col">
+      <div class="info-item"><label>Brand</label><p>Sandbox — Hub for Freelancers and Entrepreneurs</p></div>
+      <div class="info-item"><label>Platform</label><p>Instagram (@sandboxhubng)</p></div>
+      <div class="info-item"><label>Campaign Type</label><p>Referral Contest</p></div>
+      <div class="info-item"><label>Duration</label><p>3 days</p></div>
+      <div class="info-item"><label>Prize</label><p>Airtime voucher worth N5,000</p></div>
+      <div class="info-item"><label>Primary Goal</label><p>Audience and follower growth through organic community mechanics</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 02</div>
+    <div class="section-title">Target Audiences</div>
+    <p style="font-size:0.82rem;color:#4A5568;margin-bottom:1rem;">The campaign was tailored to three distinct audience segments with separate messaging and prizes for each.</p>
+    <div class="audience-grid">
+      <div class="audience-card a1">
+        <h4>Homeowners</h4>
+        <p>People who own or rent a home and are interested in home security or solar panel solutions.</p>
+        <span class="prize">Prize: Free home security + solar consultation</span>
+      </div>
+      <div class="audience-card a2">
+        <h4>Business Owners</h4>
+        <p>People who own or rent a physical outlet and need business asset protection and sustainability advice.</p>
+        <span class="prize">Prize: Free security audit + sustainability consultation</span>
+      </div>
+      <div class="audience-card a3">
+        <h4>Property Managers</h4>
+        <p>People involved in furnishing or managing properties who need scalable security and eco solutions.</p>
+        <span class="prize">Prize: Discounted security install + sustainability consultation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 03</div>
+    <div class="section-title">How It Worked</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content"><h4>Sign Up</h4><p>Participants visited the bio link and signed up via Google Form to receive their unique referral link.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content"><h4>Refer</h4><p>Shared their unique referral link with friends, family, and colleagues who might be interested in home security, solar panels, or both.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content"><h4>Earn Entries</h4><p>Every successful referral earned an entry into the contest. More referrals meant better odds of winning.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content"><h4>Engage</h4><p>Participants also shared, liked, and commented on the campaign post — driving organic reach and algorithm visibility beyond the initial audience.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 04</div>
+    <div class="section-title">Campaign Creatives</div>
+    <p style="font-size:0.82rem;color:#4A5568;margin-bottom:1rem;">Two-slide carousel used to launch the campaign — announcement post and participation instructions.</p>
+    <div class="creative-grid">
+      <div class="creative-placeholder">
+        <!-- Replace with: <img src="YOUR_CLOUDINARY_URL" alt="Sandbox Referral Contest announcement graphic" style="width:100%;border-radius:8px;"> -->
+        <p>Referral Contest Graphic</p>
+        <span>Upload to Cloudinary and replace this block with an img tag</span>
+      </div>
+      <div class="creative-placeholder">
+        <!-- Replace with: <img src="YOUR_CLOUDINARY_URL" alt="How to Participate slide" style="width:100%;border-radius:8px;"> -->
+        <p>How to Participate Slide</p>
+        <span>Upload to Cloudinary and replace this block with an img tag</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 05</div>
+    <div class="section-title">Campaign Results</div>
+    <div class="analytics-grid">
+      <div class="stat-card"><div class="stat-num">1,015</div><div class="stat-label">Total post interactions</div><div class="stat-sub">937 comments · 58 likes · 19 shares · 1 save</div></div>
+      <div class="stat-card"><div class="stat-num">347</div><div class="stat-label">Accounts reached</div><div class="stat-sub">315 accounts engaged (91% engagement rate)</div></div>
+      <div class="stat-card"><div class="stat-num">780</div><div class="stat-label">Profile activity actions</div><div class="stat-sub">536 new follows · 244 profile visits</div></div>
+      <div class="stat-card"><div class="stat-num">406%</div><div class="stat-label">Follower growth</div><div class="stat-sub">From 79 to 400+ in 3 days</div></div>
+      <div class="stat-card"><div class="stat-num">406</div><div class="stat-label">Impressions on campaign post</div><div class="stat-sub">215 from followers · 132 from non-followers</div></div>
+      <div class="stat-card"><div class="stat-num">3 days</div><div class="stat-label">Campaign duration</div><div class="stat-sub">Zero ongoing ad spend required</div></div>
+    </div>
+    <div class="analytics-screenshot">
+      <!-- Replace with: <img src="YOUR_CLOUDINARY_URL" alt="Instagram Insights screenshot" style="width:100%;border-radius:8px;"> -->
+      <p>Instagram Insights Screenshots</p>
+      <span>Upload the analytics screenshots to Cloudinary and replace this block</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 06</div>
+    <div class="section-title">What Made It Work</div>
+    <div class="insight-box">
+      <h4>The Mechanic Was the Strategy</h4>
+      <p>Most brands run giveaways that generate temporary spikes with no retention. This campaign worked because the referral mechanic was tied to genuine audience alignment — each participant had to actively recruit people who matched one of the three audience segments. That meant new followers arrived already interested in what the brand offers, not just chasing a prize. The result was a follower base that actually belonged there.</p>
+    </div>
+    <div class="insight-box" style="margin-top:1rem;background:#E0F2FE;border-color:#BAE6FD;">
+      <h4 style="color:#0C4A6E;">The Transferable Lesson</h4>
+      <p>Organic community-driven growth can outperform paid campaigns when the incentive structure is designed around the right audience, not just the biggest prize. A $0 campaign that brings in the right 320 followers is worth more than a $500 campaign that brings in 3,000 who never engage again.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="/">Back to portfolio</a> &nbsp;·&nbsp; Prepared by <strong>Nora Elegha</strong> · Social Media Growth Strategist · <strong>noraelegha.vercel.app</strong>
+  </div>
+
+</div>
+</body>
+</html>

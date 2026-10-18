@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Elites Ad Campaign Brief — Nora Elegha</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#F8F7FF;color:#1a1a2e;font-size:13px;line-height:1.6;}
+.page{max-width:900px;margin:0 auto;padding:2rem;}
+a.back{display:inline-flex;align-items:center;gap:0.4rem;color:#8B5CF6;font-size:0.8rem;font-weight:600;text-decoration:none;margin-bottom:1.5rem;}
+a.back:hover{opacity:0.7;}
+.cover{background:#0D0A1A;border-radius:16px;padding:2.5rem 3rem;margin-bottom:2rem;}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.5rem;}
+.cover-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8B5CF6;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);padding:0.3rem 0.75rem;border-radius:100px;}
+.cover-status{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#F59E0B;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);padding:0.3rem 0.75rem;border-radius:100px;}
+.cover h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:0.5rem;}
+.cover h1 span{color:#8B5CF6;}
+.cover-sub{color:#847EA8;font-size:0.88rem;max-width:560px;}
+.section{background:#fff;border-radius:12px;padding:1.75rem 2rem;margin-bottom:1.5rem;border:1px solid #EBEBF5;}
+.section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8B5CF6;margin-bottom:0.5rem;}
+.section-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;color:#0D0A1A;margin-bottom:1.25rem;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.info-item{background:#F8F7FF;border-radius:8px;padding:1rem;}
+.info-item label{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#8B5CF6;display:block;margin-bottom:0.3rem;}
+.info-item p{font-size:0.85rem;color:#1a1a2e;font-weight:500;}
+.goals-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.goal{border-radius:10px;padding:1.25rem;}
+.goal-primary{background:#EDE9FE;border:1px solid #C4B5FD;}
+.goal-secondary{background:#FEF3C7;border:1px solid #FCD34D;}
+.goal h4{font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:800;margin-bottom:0.6rem;}
+.goal-primary h4{color:#5B21B6;}.goal-secondary h4{color:#92400E;}
+.goal ul{padding-left:1rem;}
+.goal li{font-size:0.78rem;color:#4A5568;margin-bottom:0.3rem;}
+.audience-detail{background:#F8F7FF;border-radius:10px;padding:1.25rem;margin-bottom:1rem;}
+.audience-detail h4{font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:800;color:#0D0A1A;margin-bottom:0.6rem;}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+.detail-item label{font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#8B5CF6;display:block;margin-bottom:0.25rem;}
+.detail-item p{font-size:0.78rem;color:#4A5568;}
+.placements-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;}
+.placement{background:#EDE9FE;border:1px solid #C4B5FD;border-radius:8px;padding:0.875rem;text-align:center;}
+.placement h4{font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:800;color:#5B21B6;margin-bottom:0.3rem;}
+.placement p{font-size:0.7rem;color:#7C3AED;}
+.budget-visual{display:grid;grid-template-columns:4fr 1fr;gap:1rem;margin-top:0.75rem;}
+.budget-bar{border-radius:10px;overflow:hidden;height:48px;display:flex;}
+.budget-lead{background:#8B5CF6;display:flex;align-items:center;justify-content:center;flex:4;}
+.budget-brand{background:#C4B5FD;display:flex;align-items:center;justify-content:center;flex:1;}
+.budget-lead p,.budget-brand p{font-size:0.72rem;font-weight:700;color:#fff;}
+.budget-labels{display:flex;justify-content:space-between;margin-top:0.5rem;}
+.budget-labels span{font-size:0.68rem;color:#847EA8;}
+.messaging-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;}
+.msg{border-radius:8px;padding:1rem;border:1px solid #EBEBF5;background:#F8F7FF;}
+.msg h4{font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:800;color:#8B5CF6;margin-bottom:0.4rem;}
+.msg p{font-size:0.75rem;color:#4A5568;line-height:1.5;}
+.status-box{background:#FEF3C7;border:1px solid #FCD34D;border-radius:10px;padding:1.25rem;}
+.status-box h4{font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:800;color:#92400E;margin-bottom:0.5rem;}
+.status-box p{font-size:0.8rem;color:#78350F;line-height:1.6;}
+.learning-box{background:#EDE9FE;border:1px solid #C4B5FD;border-radius:10px;padding:1.25rem;margin-top:1rem;}
+.learning-box h4{font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:800;color:#5B21B6;margin-bottom:0.5rem;}
+.learning-box p{font-size:0.8rem;color:#4A5568;line-height:1.6;}
+.footer{text-align:center;padding:1.5rem;color:#847EA8;font-size:0.75rem;}
+.footer strong{color:#8B5CF6;}
+.footer a{color:#8B5CF6;text-decoration:none;}
+@media(max-width:600px){
+  .two-col,.goals-grid,.detail-grid,.placements-grid,.messaging-grid{grid-template-columns:1fr;}
+  .cover{padding:1.5rem;}
+  .cover h1{font-size:1.5rem;}
+  .budget-visual{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back" href="/">← Back to Portfolio</a>
+
+  <div class="cover">
+    <div class="cover-top">
+      <span class="cover-tag">Campaign Strategy Brief</span>
+      <span class="cover-status">Strategy Sample</span>
+    </div>
+    <h1>Instagram Ad Campaign<br><span>The Elites</span></h1>
+    <p class="cover-sub">A full Instagram paid campaign strategy built for a premium matchmaking brand targeting high-net-worth individuals across 7 global cities. Covers audience targeting, messaging framework, placement strategy, and budget allocation.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 01</div>
+    <div class="section-title">Campaign Overview</div>
+    <div class="two-col">
+      <div class="info-item"><label>Brand</label><p>The Elites — Premium Matchmaking Service</p></div>
+      <div class="info-item"><label>Platform</label><p>Instagram (Feed, Stories, Explore, Reels)</p></div>
+      <div class="info-item"><label>Campaign Type</label><p>Paid — Brand Awareness + Lead Generation</p></div>
+      <div class="info-item"><label>Target Subscription Value</label><p>$2,500+ per client</p></div>
+      <div class="info-item"><label>Primary Goal</label><p>Capture high-quality leads via Instagram lead generation forms</p></div>
+      <div class="info-item"><label>Secondary Goal</label><p>Build brand recognition among affluent singles globally</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 02</div>
+    <div class="section-title">Campaign Goals</div>
+    <div class="goals-grid">
+      <div class="goal goal-primary">
+        <h4>Primary — Lead Generation (80%)</h4>
+        <ul>
+          <li>Capture qualified leads via Instagram lead forms</li>
+          <li>Target individuals who can afford $2,500+ subscriptions</li>
+          <li>Drive consultation booking requests</li>
+          <li>Build a retargeting pool of warm prospects</li>
+        </ul>
+      </div>
+      <div class="goal goal-secondary">
+        <h4>Secondary — Brand Awareness (20%)</h4>
+        <ul>
+          <li>Establish The Elites as a premium authority</li>
+          <li>Reach affluent singles across 7 target cities</li>
+          <li>Position the brand alongside luxury lifestyle content</li>
+          <li>Build long-term brand recall for future conversions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 03</div>
+    <div class="section-title">Target Audience</div>
+    <div class="audience-detail">
+      <h4>Demographic Targeting</h4>
+      <div class="detail-grid">
+        <div class="detail-item"><label>Age Range</label><p>30-50 years — mature, financially stable audience</p></div>
+        <div class="detail-item"><label>Target Cities</label><p>London, New York, Los Angeles, Dubai, Johannesburg, Lagos, Paris</p></div>
+        <div class="detail-item"><label>Interests</label><p>Luxury brands (Chanel, Rolex, Louis Vuitton), high-end travel, luxury real estate, fine dining, professional networking</p></div>
+        <div class="detail-item"><label>Behaviours</label><p>Frequent international travellers, users who engage with luxury content, demonstrated spending on premium goods</p></div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;color:#847EA8;">Rationale: The campaign targets proven luxury consumers rather than aspirational audiences — ensuring leads arrive pre-qualified by income and lifestyle signals.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 04</div>
+    <div class="section-title">Core Messaging Framework</div>
+    <div class="messaging-grid">
+      <div class="msg">
+        <h4>Exclusivity</h4>
+        <p>Position The Elites as a premium matchmaking service for affluent, successful individuals seeking meaningful connections — not mass-market dating.</p>
+      </div>
+      <div class="msg">
+        <h4>Luxury</h4>
+        <p>Highlight the luxurious, high-end nature of the service. Emphasise the benefits of a personalised, discreet matchmaking process that respects the client's time and privacy.</p>
+      </div>
+      <div class="msg">
+        <h4>Success Stories</h4>
+        <p>Showcase testimonials and stories from successful couples to build trust and demonstrate real outcomes — making the service aspirational and credible simultaneously.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 05</div>
+    <div class="section-title">Ad Placements</div>
+    <div class="placements-grid">
+      <div class="placement">
+        <h4>Feed</h4>
+        <p>Static images and videos for maximum visibility in core browsing flow</p>
+      </div>
+      <div class="placement">
+        <h4>Stories</h4>
+        <p>Short immersive video ads with swipe-up lead form</p>
+      </div>
+      <div class="placement">
+        <h4>Explore</h4>
+        <p>Discovery-phase ads reaching users actively looking for new content</p>
+      </div>
+      <div class="placement">
+        <h4>Reels</h4>
+        <p>Short-form video ads to capture attention and drive lead form completions</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 06</div>
+    <div class="section-title">Budget Allocation</div>
+    <div class="budget-visual">
+      <div>
+        <div class="budget-bar">
+          <div class="budget-lead"><p>80% Lead Generation</p></div>
+          <div class="budget-brand"><p>20%</p></div>
+        </div>
+        <div class="budget-labels">
+          <span>Lead Generation — primary spend</span>
+          <span>Brand Awareness</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.75rem;color:#847EA8;margin-top:0.75rem;">80/20 split prioritises measurable lead capture over brand impressions. Given the high subscription value ($2,500+), even a small number of quality leads justifies significant spend — the campaign is optimised for lead quality, not volume.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Section 07</div>
+    <div class="section-title">Campaign Status and Strategic Notes</div>
+    <div class="status-box">
+      <h4>Status: Strategy Developed — Pending Execution Data</h4>
+      <p>This brief was developed as a full campaign strategy for The Elites. The targeting framework, messaging architecture, placement mix, and budget logic were built out in full. Execution data is pending. This document is included as a demonstration of strategic campaign planning — showing the thinking that precedes any paid campaign, not just the results after it runs.</p>
+    </div>
+    <div class="learning-box">
+      <h4>Why This Approach Works</h4>
+      <p>Most agencies targeting luxury brands default to aesthetic-first creative. This strategy prioritises audience qualification first — using interest and behaviour signals that correlate with actual purchasing power, not just aspirational interest. The 80/20 budget split reflects a business reality: for a $2,500+ service, one converted lead pays back the entire campaign spend many times over. Every targeting and messaging decision was made with that math in mind.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="/">Back to portfolio</a> &nbsp;·&nbsp; Prepared by <strong>Nora Elegha</strong> · Social Media Growth Strategist · <strong>noraelegha.vercel.app</strong>
+  </div>
+
+</div>
+</body>
+</html>
